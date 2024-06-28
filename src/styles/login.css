@@ -1,0 +1,50 @@
+.login {
+  /* background: red; */
+  height: 100vh;
+  display: flex;
+}
+.afyamama-logo {
+  width: 50%;
+  text-align: center;
+  /* background:var(--bg) */
+  background: #f7f7f7;
+}
+.afyamama-logo .title {
+  font-size: 3em;
+  color: var(--blue);
+}
+.afyamama-logo .subtext {
+  color: var(--pink);
+  color: var(--blue);
+  /* text-align: start; */
+}
+
+.afyamama-form {
+  width: 50%;
+  background: var(--bg);
+  /* background: #f7f7f7; */
+  /* background: rgb(43, 80, 170, 0.3); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.afyamama-form form {
+  /* border: 1px solid black; */
+  /* margin-left: -150px; */
+
+  border-radius: 10px;
+  width: 70%;
+  height: 60vh;
+  background: white;
+  background: #f7f7f7;
+  /* background: var(--bg); */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+.afyamama-form form h2 {
+  text-align: center;
+  /* color: var(--pink); */
+}

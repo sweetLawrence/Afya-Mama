@@ -1,0 +1,217 @@
+.navigation {
+  /* background: black; */
+  height: 100vh;
+  width: 20%;
+  background: white;
+  box-shadow: 3px 1px 5px var(--hover);
+}
+.navigation .logo {
+  padding: 0.3em;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  border-bottom: 0.5px solid #ebebeb;
+}
+.navigation .title {
+  position: absolute;
+  left: 30%;
+  bottom: 20%;
+  font-size: 1.3em;
+  background: white;
+  color: var(--text);
+}
+.navigation .logo img {
+  width: 28%;
+  object-fit: cover;
+  /* background: red; */
+  /* text-align: start; */
+}
+.navigation .nav-items {
+  color: var(--text);
+  font-weight: 550;
+  margin-top: 0.5em;
+  /* background: grey; */
+}
+.navigation .nav-items .row {
+  /* background: #f177ad; */
+  padding: 0.9em;
+  margin-bottom: 0.4em;
+  width: 95%;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+.navigation .nav-items .row:hover {
+  background: var(--hover);
+}
+
+.dashboard {
+  /* background: #f177ad; */
+  display: flex;
+  overflow: hidden;
+}
+
+.display-area {
+  /* background: red; */
+  width: 80%;
+}
+
+/* Intake */
+
+.intake {
+  /* background-color: red; */
+}
+.intake .top {
+  display: flex;
+  padding: 0.8em;
+  /* background: green; */
+  position: relative;
+}
+.intake .search {
+  outline: none;
+  border: none;
+  width: 70%;
+  border-radius: 3px;
+  background: var(--hover);
+  color: var(--text);
+  font-size: 1.1em;
+  padding: 0.9em;
+  transition: all 0.4s;
+  padding-left: 2.5em;
+}
+.intake .search:focus {
+  background: white;
+  box-shadow: 0px 2px 2px rgb(142, 141, 141);
+}
+.intake .icon {
+  background: var(--hover);
+  background: transparent;
+  position: absolute;
+  top: 35%;
+  left: 2%;
+}
+
+/* Middle */
+.intake .middle {
+  background: var(--hover);
+  /* background: red; */
+  width: 98%;
+  /* height: 20vh; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.intake .card-wrapper {
+  margin: 2.9em;
+  /* background: red; */
+}
+
+.intake p {
+  margin-left: 0.5em;
+  color: var(--text);
+  font-weight: 500;
+}
+.intake .card {
+  background: var(--bg);
+  background: white;
+  width: 200px;
+  height: 130px;
+  margin: 0.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.intake .card:hover {
+  border: 1px solid var(--pink);
+}
+.gradient-mask {
+  width: 100%;
+  height: 100%;
+  /* mask-image: linear-gradient(to right, var(--blue), var(--pink)); */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(179, 45, 45, 0),
+    rgba(0, 0, 0, 1)
+  );
+}
+.intake .bottom {
+  display: flex;
+  padding: 1em;
+  /* align-items: center; */
+  justify-content: space-around;
+}
+.intake .statistics {
+  width: 30%;
+}
+.intake .stat {
+  width: 100%;
+  height: 130px;
+  padding: 0.5em;
+  padding-top: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--blue);
+  border-radius: 5px;
+  margin-top: 0.3em;
+}
+.intake .stat .word {
+  font-size: 0.9em;
+  width: 100%;
+  text-align: start;
+  color: white;
+}
+.intake .stat .value {
+  font-size: 1.9em;
+  width: 100%;
+  text-align: start;
+  color: white;
+  margin-top: 0.5em;
+}
+
+.intake .recent-activities {
+  /* background: red; */
+  width: 65%;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+/* styles.css */
+
+/* Style for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  /* Style for table headers */
+  th {
+    background-color: #f2f2f2;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  /* Style for table cells */
+  td {
+    padding: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Alternate row background color */
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Hover effect on table rows */
+  tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  

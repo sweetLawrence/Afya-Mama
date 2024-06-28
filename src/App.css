@@ -1,0 +1,206 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+/* :root {
+  --blue: #2b50aa;
+  --pink: #f178ab;
+  --grey:#5f6368;
+} */
+a {
+  text-decoration: none;
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.forgot-password {
+  text-align: center;
+}
+.forgot-password:focus {
+  color: #f378b3;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: #3b82f6;
+  margin: 0.4em;
+  color: white;
+  font-size: 1.23em;
+  padding: 0.5em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  width: auto;
+  min-width: 245px;
+  border-radius: 3px;
+  align-self: center;
+}
+
+.App {
+  width: 100%;
+}
+.loader {
+  width: 100%;
+  height: 100vh;
+  background: #050517;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-x {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  margin: 130px 0;
+  perspective: 780px;
+}
+
+.text {
+  font-size: 30px;
+  font-weight: 700;
+  color: #cecece;
+
+  z-index: 10;
+}
+
+.load-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+}
+
+.load-inner.load-one {
+  left: 0%;
+  top: 0%;
+  border-bottom: 3px solid #5c5edc;
+
+  animation: rotate1 2s linear infinite;
+}
+
+.load-inner.load-two {
+  right: 0%;
+  top: 0%;
+  border-right: 3px solid #9147ff;
+  border-bottom: 3px solid #f378b3;
+  animation: rotate2 2s 0.1s linear infinite;
+}
+
+.load-inner.load-three {
+  right: 0%;
+  bottom: 0%;
+  border-top: 3px solid #3b82f6;
+  animation: rotate3 2s 0.15s linear infinite;
+}
+
+@keyframes rotate1 {
+  0% {
+    transform: rotateX(45deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    transform: rotateX(45deg) rotateY(45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(45deg) rotateY(45deg) rotateZ(360deg);
+  }
+}
+@keyframes rotate3 {
+  0% {
+    transform: rotateX(-60deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-60deg) rotateY(0deg) rotateZ(360deg);
+  }
+}
+
+/* Input component */
+.input {
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1.4em;
+  text-align: start;
+}
+.input .label_component {
+  font-size: 1.2em;
+  font-weight: 500;
+  /* text-align: start; */
+  /* background: red; */
+}
+.input .input_component {
+  outline: none;
+  border: none;
+  border-bottom: 1.5px solid black;
+  /* border-radius: 5px; */
+  font-size: 0.8em;
+  padding: 0.7em;
+  width: 100%;
+  /* background: red; */
+  /* padding-left: 1.5em; */
+}
+
+.input .main {
+  position: relative;
+  width: 60%;
+}
+.input .icon {
+  position: absolute;
+  right: 0px;
+  top: 0;
+  /* background: white; */
+  /* border: 1px solid black; */
+  /* height: 70px;
+  width: 70px; */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reset-password-page {
+  margin: 0 auto;
+  text-align: center;
+  /* background: red; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.resetform {
+  /* border: 2px solid black; */
+  margin: 10% auto;
+  width: 30%;
+  border-radius: 10px;
+  /* background: red; */
+  padding: 1.6em;
+  height: 70vh;
+  background: #ececec;
+  background: #eaeaff;
+}
+.resetform .new-password {
+  outline: none;
+  border: none;
+  border-bottom: 1.5px solid #3b82f6;
+  /* border-radius: 5px; */
+  font-size: 0.8em;
+  padding: 0.7em;
+  margin: 1.4em;
+  width: 80%;
+  background: transparent;
+  /* background: red; */
+  /* padding-left: 1.5em; */
+}
