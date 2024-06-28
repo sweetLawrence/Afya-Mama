@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import afyamamalogo from "../assets/images/afyamama.png";
 import { Navdata } from "../assets/Data/Navdata";
 const Navigation = ({ onNavClick }) => {
+  const [activeNavItem, setActiveNavItem] = useState('Intake');
+
+  const handleNavClick = (value) => {
+    setActiveNavItem(value.name);
+    onNavClick(value.component);
+  };
+
   return (
     <div className="navigation">
       <div className="logo">
@@ -10,7 +17,10 @@ const Navigation = ({ onNavClick }) => {
       </div>
       <div className="nav-items">
         <ul>{Navdata.map((value,key)=>(
-            <li className="row" key={key} onClick={() => onNavClick(value.component)}>{value.name}</li>
+            <li key={key} 
+            className={`row ${value.name === activeNavItem ? 'active' : ''}`}
+            onClick={() => handleNavClick(value)}>{value.name}
+            </li>
         ))}</ul>
       </div>
     </div>

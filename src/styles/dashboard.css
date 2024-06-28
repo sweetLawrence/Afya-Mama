@@ -45,6 +45,10 @@
 .navigation .nav-items .row:hover {
   background: var(--hover);
 }
+.navigation .nav-items .row.active{
+    background: var(--blue);
+    color: white;
+}
 
 .dashboard {
   /* background: #f177ad; */
