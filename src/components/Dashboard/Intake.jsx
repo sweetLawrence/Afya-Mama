@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
+import NewPatient from "./NewPatient";
 
 const Intake = () => {
+  const [formOpen, setFormOpen] = useState(false);
+
+  function openIntakeForm() {
+    setFormOpen(true);
+    alert("Form Opened")
+  }
+
   return (
     <div className="intake">
+      {formOpen && <div className="backdrop"></div>}
       <div className="top">
         <div className="icon">
           <SearchIcon style={{ color: "#3c4043" }} />
@@ -14,7 +23,7 @@ const Intake = () => {
 
       <div className="middle">
         <div className="card-wrapper">
-          <div className="card">
+          <div onClick={openIntakeForm} className="card xdf">
             <AddIcon className="gradient-mask" style={{ fontSize: "7em" }} />
           </div>
           <p>New Patient</p>
@@ -25,9 +34,9 @@ const Intake = () => {
             <AddIcon />
           </div>
           <p>New Patient</p>
-        </div>
+        </div> */}
 
-        <div className="card-wrapper">
+        {/* <div className="card-wrapper">
           <div className="card">
             <AddIcon  />
           </div>
@@ -48,7 +57,7 @@ const Intake = () => {
         </div>
         <div className="right recent-activities">
           <h2>Recent Activities</h2>
-        <table>
+          <table>
             <thead>
               <tr>
                 <th>Timestamp</th>
@@ -81,6 +90,8 @@ const Intake = () => {
           </table>
         </div>
       </div>
+
+      {formOpen ? <NewPatient /> : ""}
     </div>
   );
 };

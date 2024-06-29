@@ -4,12 +4,9 @@
   box-sizing: border-box;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+    /* overflow: hidden; */
 }
-/* :root {
-  --blue: #2b50aa;
-  --pink: #f178ab;
-  --grey:#5f6368;
-} */
+
 a {
   text-decoration: none;
   color: #3b82f6;
