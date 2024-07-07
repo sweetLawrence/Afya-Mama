@@ -3,19 +3,17 @@ import "../../styles/forms.css";
 import FormInput from "../Form/FormInput";
 import GroupedInputs from "../Form/GroupedInputs";
 import SelectComponent from "../Form/SelectComponent";
-const NewPatient = () => {
-  function handleSubmit() {}
+const NewPatient = ({ setFormOpen }) => {
+  function handleSubmit(e) {
+    e.preventDefault();
+    setFormOpen(false);
+  }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     // setFormValues({ ...formValues, [name]: value });
   };
-  const genderOptions = [
-    { value: "", label: "Select Gender" },
-    { value: "male", label: "Male" },
-    { value: "female", label: "Female" },
-    { value: "other", label: "Other" },
-  ];
+  const genderOptions = [{ value: "female", label: "Female" }];
 
   const maritalStatusOptions = [
     { value: "", label: "Marital Status" },
@@ -31,7 +29,7 @@ const NewPatient = () => {
       </div>
       <div className="form-section">
         <form onSubmit={handleSubmit}>
-          <GroupedInputs title="Registration Date and Time">
+          <GroupedInputs special_class="special_class" title="Registration Date and Time">
             <FormInput name="date" type="date" label="Date" id="date" />
             <FormInput name="time" type="time" label="Time" id="time" />
           </GroupedInputs>
@@ -42,24 +40,29 @@ const NewPatient = () => {
               type="number"
               label="National Id"
               id="national_id"
+              min={0}
+              maxLength={8}
+              minLength={7}
             />
           </GroupedInputs>
 
-          <div className="grouped-elements">
+          <div className="grouped-elements special_class">
             <GroupedInputs title="Patient Name">
               <FormInput name="first_name" label="First Name" id="first_name" />
               <FormInput name="last_name" label="Last Name" id="last_name" />
             </GroupedInputs>
 
             <GroupedInputs title="Sex">
-              <SelectComponent
+              {/* <SelectComponent
                 name="gender"
                 id="gender"
-                label="Gender"
+                label="Sex"
                 options={genderOptions}
                 onChange={handleInputChange}
                 //  value={formValues.gender}
-              />
+              /> */}
+
+              <FormInput name="sex" label="" id="sex" value="Female" disabled/>
             </GroupedInputs>
           </div>
 
@@ -73,7 +76,7 @@ const NewPatient = () => {
             {/* <FormInput name="last_name" label="Last Name" id="last_name" /> */}
           </GroupedInputs>
 
-          <div className="grouped-elements">
+          <div className="grouped-elements special_class">
             <GroupedInputs title="Phone Number">
               <FormInput
                 name="phone"
@@ -102,7 +105,7 @@ const NewPatient = () => {
           <div className="title-section">
             <h2>Emergency Contact</h2>
           </div>
-          <GroupedInputs title="Emergency Contact">
+          <GroupedInputs special_class="special_class" title="Emergency Contact">
             <FormInput
               name="emergency_first_name"
               label="First Name"
@@ -115,30 +118,94 @@ const NewPatient = () => {
             />
           </GroupedInputs>
 
-          <div className="grouped-elements">
-            <GroupedInputs title="Relationship">
-              <FormInput
-                name="emergency_relationship"
-                // label="Phone Number"
-                id="emergency_relationship"
-              />
-            </GroupedInputs>
+          {/* <div className="grouped-elements"> */}
+          <GroupedInputs title="Relationship & Contact Number">
+            <FormInput
+              name="emergency_relationship"
+              label="Relationship"
+              id="emergency_relationship"
+            />
 
-            <GroupedInputs title="Contact Number">
+            <FormInput
+              name="emergency_phone"
+              type="tel"
+              label="Contact Number"
+              id="emergency_phone"
+            />
+          </GroupedInputs>
+
+          {/* <GroupedInputs title="Contact Number">
               <FormInput
                 name="emergency_phone"
                 type="tel"
-                //   label="Email"
+                label="Contact Number"
                 id="emergency_phone"
               />
-            </GroupedInputs>
+            </GroupedInputs> */}
 
-            {/* <div className="title-section">
+          {/* <div className="title-section">
             <h2>Health History</h2>
           </div> */}
+          {/* </div> */}
+
+          <div className="title-section">
+            <h2>Maternal Profile</h2>
           </div>
 
-          <button className="intake_btn" type="submit">Register</button>
+          <GroupedInputs special_class="special_class" title="Last Menstrual Period & Expected Delivery Date">
+            <FormInput
+              name="lmp"
+              label="LMP"
+              id="lmp"
+              type="date"
+            />
+
+            <FormInput
+              name="edd"
+              label="EDD"
+              id="edd"
+              type="date"
+            />
+          </GroupedInputs>
+
+          
+          <GroupedInputs title="Gravida & Parity">
+            <FormInput
+              name="gravida"
+              label="Gravida"
+              id="gravida"
+              type="number"
+            />
+
+            <FormInput
+              name="parity"
+              label="Parity"
+              id="parity"
+              type="number"
+            />
+          </GroupedInputs>
+
+          
+          <GroupedInputs special_class="special_class" title="Height & Weight">
+            <FormInput
+              name="height"
+              label="Height"
+              id="height"
+              placeholder="ft"
+              
+            />
+
+            <FormInput
+              name="weight"
+              label="Weight"
+              id="weight"
+               placeholder="Kgs"
+            />
+          </GroupedInputs>
+
+          <button className="intake_btn" type="submit">
+            Register
+          </button>
         </form>
       </div>
     </div>

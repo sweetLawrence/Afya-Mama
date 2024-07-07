@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import afyamamalogo from "../assets/images/afyamama.png";
 import { Navdata } from "../assets/Data/Navdata";
+import { useSearchParams } from "react-router-dom";
 const Navigation = ({ onNavClick }) => {
   const [activeNavItem, setActiveNavItem] = useState("Intake");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const search_param = String(searchParams.get('q')).toLowerCase();
+
+  useEffect(()=>{
+    setActiveNavItem(search_param);
+  },[])
+
+  // console.log(searchParams.get('q'))
 
   const handleNavClick = (value) => {
-    setActiveNavItem(value.name);
-    onNavClick(value.component);
+    setActiveNavItem(value.name.toLowerCase());
+    onNavClick(value.name);
   };
 
   return (
@@ -20,7 +30,7 @@ const Navigation = ({ onNavClick }) => {
           {Navdata.map((value, key) => (
             <li
               key={key}
-              className={`row ${value.name === activeNavItem ? "active" : ""}`}
+              className={`row ${value.name.toLowerCase() === activeNavItem.toLowerCase() ? "active" : ""}`}
               onClick={() => handleNavClick(value)}
             >
               {value.name}

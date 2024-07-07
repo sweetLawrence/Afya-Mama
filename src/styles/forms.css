@@ -1,6 +1,6 @@
 .newpatient {
   position: fixed;
-  width: 65%;
+  width: 60%;
   min-height: 60vh;
   max-height: 98vh;
   top: 50%;
@@ -12,63 +12,76 @@
   overflow: auto;
 }
 
-.intake_btn{
-    background: var(--blue);
-    margin: 4% 30%;
+.intake_btn {
+  background: var(--blue);
+  margin: 4% 30%;
 }
 
 .newpatient .title-section {
   text-align: center;
   padding: 1.6em;
   border-bottom: 2px solid var(--bg);
-}
-
-.newpatient .grouped-elements{
-    /* background: red; */
-    width: 90%;
-    margin: 0 auto;
-    display: flex;
-    /* align-items: center; */
-    justify-content: space-between;
+  
 }
 
 
-.newpatient .element-container{
-    margin: 3% auto;
-    padding: .5em;
-    /* background: var(--bg); */
-    width: 90%;
-    transition: all .2s;
-}
-.newpatient .element-container:hover{
-   background: var(--bg);   
-}
-.newpatient .element-title{
-    margin-bottom: 1.5%;
+.newpatient .grouped-elements {
+  /* background: red; */
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
 }
 
-.newpatient .element-input-container{
-    display: flex;
+.newpatient .element-container {
+  margin: 3% auto;
+  padding: 0.5em;
+  /* background: var(--bg); */
+  width: 90%;
+  transition: all 0.2s;
+}
+.newpatient .element-container:hover {
+  /* background: var(--bg); */
+}
+.newpatient .element-title {
+  margin-bottom: 1.5%;
+  font-weight: 500;
+  /* color: var(--blue); */
+}
+
+.special_class{
+    background: var(--bg);
+}
+
+.newpatient .element-input-container {
+  display: flex;
 }
 
 /* FormInput */
-.form-input-wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin: .3em;
+.form-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 0.3em;
 }
-.form-input-wrapper input , .form-input-wrapper select {
+.form-input-wrapper input,
+.form-input-wrapper select {
   outline: none;
   padding: 0.8em;
   border: 1.2px solid black;
   border-radius: 5px;
   font-weight: 600;
   margin-bottom: 6px;
-  
+  transition: all .1s;
 }
-.form-input-wrapper label{
-    font-size: .8em;
-    color: var(--grey);
-    align-self: flex-start;
+
+.form-input-wrapper input:focus,
+.form-input-wrapper select:focus {
+  border: 1.3px solid var(--blue);
+}
+.form-input-wrapper label {
+  font-size: 0.8em;
+  color: var(--grey);
+  align-self: flex-start;
 }

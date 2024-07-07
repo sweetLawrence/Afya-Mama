@@ -1,15 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
 import NewPatient from "./NewPatient";
+import { useSearchParams } from "react-router-dom";
 
 const Intake = () => {
-  const [formOpen, setFormOpen] = useState(false);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const formOpenParam = searchParams.get('form') === 'open';
+  const [formOpen, setFormOpen] = useState(formOpenParam);
 
   function openIntakeForm() {
     setFormOpen(true);
-    alert("Form Opened")
+    const newSearchParams = new URLSearchParams(searchParams);
+    newSearchParams.set("form", "open");
+
+    setSearchParams(newSearchParams);
   }
+
+  useEffect(() => {
+
+    if (formOpen) {
+      searchParams.set('form', 'open');
+    } else {
+      searchParams.delete('form');
+    }
+    setSearchParams(searchParams);
+  }, [formOpen, searchParams, setSearchParams]);
+
 
   return (
     <div className="intake">
@@ -91,7 +109,7 @@ const Intake = () => {
         </div>
       </div>
 
-      {formOpen ? <NewPatient /> : ""}
+      {formOpen ? <NewPatient setFormOpen={setFormOpen} /> : ""}
     </div>
   );
 };

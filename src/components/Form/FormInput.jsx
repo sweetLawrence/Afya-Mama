@@ -9,7 +9,12 @@ const FormInput = ({
   type = "text",
   className = "",
   id,
-  placeholder
+  placeholder,
+  disabled,
+  min,
+  max,
+  minLength,
+  maxLength
 }) => {
   return (
     <div className={`form-input-wrapper ${className}`}>
@@ -21,6 +26,13 @@ const FormInput = ({
         className={className}
         id={id}
         placeholder={placeholder}
+        // required
+        disabled={disabled}
+        min={min}
+        max={max}
+        minLength={minLength}
+        maxLength={maxLength}
+
       />
       <label htmlFor={id}>{label}</label>
     </div>
