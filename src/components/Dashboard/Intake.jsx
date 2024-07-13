@@ -165,12 +165,6 @@
 
 // export default Intake;
 
-
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AddIcon from "@mui/icons-material/Add";
@@ -180,11 +174,13 @@ import { Toaster, toast } from "sonner";
 
 import afyamamalogo from "../../assets/images/afyamama.png";
 import CheckinCard from "../CheckinCard";
+import axiosInstance from "../../utils/axios";
 
 const Intake = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const formOpenParam = searchParams.get("form") === "open";
   const [formOpen, setFormOpen] = useState(formOpenParam);
+  const [patients, setPatients] = useState([]);
 
   function openIntakeForm() {
     setFormOpen(true);
@@ -195,7 +191,7 @@ const Intake = () => {
   }
 
   function activateSonner() {
-    toast.success("Patient Registered successfully");
+    // toast.success("Patient Registered successfully");
   }
 
   useEffect(() => {
@@ -206,6 +202,24 @@ const Intake = () => {
     }
     setSearchParams(searchParams);
   }, [formOpen, searchParams, setSearchParams]);
+
+  useEffect(() => {
+    // Function to fetch patients data
+    const fetchPatients = async () => {
+      try {
+        const response = await axiosInstance.get(
+          "/api/collections/patients/records"
+        ); // Replace with your actual API endpoint
+        // console.log(response.data.items)
+        setPatients(response.data.items); // Update state with fetched data
+      } catch (error) {
+        console.error("Error fetching patients:", error);
+        toast.error("Failed to fetch patients"); // Notify user of error
+      }
+    };
+
+    fetchPatients(); // Call fetchPatients function when component mounts
+  }, []);
 
   return (
     <div className="intake">
@@ -232,49 +246,56 @@ const Intake = () => {
             <input type="text" placeholder="search patient" />
           </div>
           <div className="patients-table-wrapper">
-          <table className="patients-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>ID</th>
-                <th>Check-in Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
-                <td style={{ color: "#33FF8D" }}>25362803</td>
-                <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
-              </tr>
-              <tr>
-                <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
-                <td style={{ color: "#FF33E9" }}>41626032</td>
-                <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
-              </tr>
-              <tr>
-                <td style={{ color: "#3380FF" }}>Alex Danvers</td>
-                <td style={{ color: "#FF33F3" }}>32247894</td>
-                <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
-              </tr>
+            <table className="patients-table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>ID</th>
+                  <th>Check-in Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* <tr>
+                  <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
+                  <td style={{ color: "#33FF8D" }}>25362803</td>
+                  <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
+                </tr>
+                <tr>
+                  <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
+                  <td style={{ color: "#FF33E9" }}>41626032</td>
+                  <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
+                </tr>
+                <tr>
+                  <td style={{ color: "#3380FF" }}>Alex Danvers</td>
+                  <td style={{ color: "#FF33F3" }}>32247894</td>
+                  <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
+                </tr> */}
 
-              <tr>
-                <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
-                <td style={{ color: "#33FF8D" }}>25362803</td>
-                <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
-              </tr>
-              <tr>
-                <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
-                <td style={{ color: "#FF33E9" }}>41626032</td>
-                <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
-              </tr>
-              <tr>
-                <td style={{ color: "#3380FF" }}>Alex Danvers</td>
-                <td style={{ color: "#FF33F3" }}>32247894</td>
-                <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
-              </tr>
+                {/* <tr>
+                  <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
+                  <td style={{ color: "#33FF8D" }}>25362803</td>
+                  <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
+                </tr>
+                <tr>
+                  <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
+                  <td style={{ color: "#FF33E9" }}>41626032</td>
+                  <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
+                </tr>
+                <tr>
+                  <td style={{ color: "#3380FF" }}>Alex Danvers</td>
+                  <td style={{ color: "#FF33F3" }}>32247894</td>
+                  <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
+                </tr> */}
 
-            </tbody>
-          </table>
+                {patients.map((patient) => (
+                  <tr key={patient.id}>
+                    <td style={{ color: "#336BFF" }}>{patient.first_name}{' '}{patient.last_name}</td>
+                    <td style={{ color: "#FF5733" }}>{patient.national_id}</td>
+                    <td style={{ color: "#FFBD33" }}>{patient.time},{patient.date}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

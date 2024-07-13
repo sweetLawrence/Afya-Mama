@@ -6,6 +6,7 @@ import SelectComponent from "../Form/SelectComponent";
 import { useSearchParams } from "react-router-dom";
 import CheckinCard from "../CheckinCard";
 import { Toaster, toast } from 'sonner'
+import axiosInstance from "../../utils/axios";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -35,6 +36,21 @@ const NewPatient = ({ setFormOpen,activateSonner }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    axiosInstance.post('/api/collections/patients/records', formValues)
+      .then(response => {
+        // activateSonner();
+        toast.success("Patient Registered successfully");
+        setFormOpen(false);
+        console.log("Form submitted successfully:", response.data);
+      })
+      .catch(error => {
+        console.error("Error submitting form:", error);
+        // Handle error or display a toast message
+        toast.error("Failed to submit form. Please try again.");
+      });
+
+
     console.log(formValues);
     activateSonner();
     setFormOpen(false);
