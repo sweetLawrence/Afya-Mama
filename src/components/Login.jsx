@@ -4,17 +4,20 @@ import Logo from "../assets/images/afyamama.png";
 import InputComponent from "./Input";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import useLoginForm from "../hooks/useLoginForm";
 import generateOTP from "../utils/generateOTP";
 
 const Login = () => {
   const navigation = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { loginData, handleInputChange, handleSubmit, formRef } =
     useLoginForm();
 
   function handlePasswordReset() {
     alert(generateOTP());
+    const search_parameters = new URLSearchParams(searchParams);
+    search_parameters.set("q","intake");
     navigation("/reset-password");
   }
 

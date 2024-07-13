@@ -1,18 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/forms.css";
 import FormInput from "../Form/FormInput";
 import GroupedInputs from "../Form/GroupedInputs";
 import SelectComponent from "../Form/SelectComponent";
-const NewPatient = ({ setFormOpen }) => {
+import { useSearchParams } from "react-router-dom";
+import CheckinCard from "../CheckinCard";
+import { Toaster, toast } from 'sonner'
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+const NewPatient = ({ setFormOpen,activateSonner }) => {
+  const [formValues, setFormValues] = useState({
+    date: "",
+    time: "",
+    national_id: "",
+    first_name: "",
+    last_name: "",
+    sex: "Female",
+    date_of_birth: "",
+    phone: "",
+    email: "",
+    marital_status: "",
+    emergency_first_name: "",
+    emergency_last_name: "",
+    emergency_relationship: "",
+    emergency_phone: "",
+    lmp: "",
+    edd: "",
+    gravida: "",
+    parity: "",
+    height: "",
+    weight: "",
+  });
+
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(formValues);
+    activateSonner();
     setFormOpen(false);
+    // alert(checkIn)
   }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    // setFormValues({ ...formValues, [name]: value });
+    setFormValues({ ...formValues, [name]: value });
   };
+
   const genderOptions = [{ value: "female", label: "Female" }];
 
   const maritalStatusOptions = [
@@ -29,9 +62,25 @@ const NewPatient = ({ setFormOpen }) => {
       </div>
       <div className="form-section">
         <form onSubmit={handleSubmit}>
-          <GroupedInputs special_class="special_class" title="Registration Date and Time">
-            <FormInput name="date" type="date" label="Date" id="date" />
-            <FormInput name="time" type="time" label="Time" id="time" />
+          <GroupedInputs
+            special_class="special_class"
+            title="Registration Date and Time"
+          >
+            <FormInput
+              name="date"
+              type="date"
+              label="Date"
+              id="date"
+              value={formValues.date}
+              onChange={handleInputChange}
+            />
+            <FormInput
+              name="time"
+              type="time"
+              label="Time"
+              id="time"
+              onChange={handleInputChange}
+            />
           </GroupedInputs>
 
           <GroupedInputs title="National Identification Number">
@@ -43,13 +92,27 @@ const NewPatient = ({ setFormOpen }) => {
               min={0}
               maxLength={8}
               minLength={7}
+              value={formValues.national_id}
+              onChange={handleInputChange}
             />
           </GroupedInputs>
 
           <div className="grouped-elements special_class">
             <GroupedInputs title="Patient Name">
-              <FormInput name="first_name" label="First Name" id="first_name" />
-              <FormInput name="last_name" label="Last Name" id="last_name" />
+              <FormInput
+                name="first_name"
+                label="First Name"
+                id="first_name"
+                value={formValues.first_name}
+                onChange={handleInputChange}
+              />
+              <FormInput
+                name="last_name"
+                label="Last Name"
+                id="last_name"
+                value={formValues.last_name}
+                onChange={handleInputChange}
+              />
             </GroupedInputs>
 
             <GroupedInputs title="Sex">
@@ -62,7 +125,7 @@ const NewPatient = ({ setFormOpen }) => {
                 //  value={formValues.gender}
               /> */}
 
-              <FormInput name="sex" label="" id="sex" value="Female" disabled/>
+              <FormInput name="sex" label="" id="sex" value="Female" disabled />
             </GroupedInputs>
           </div>
 
@@ -72,6 +135,8 @@ const NewPatient = ({ setFormOpen }) => {
               type="date"
               label="Date of Birth"
               id="date_of_birth"
+              value={formValues.date_of_birth}
+              onChange={handleInputChange}
             />
             {/* <FormInput name="last_name" label="Last Name" id="last_name" /> */}
           </GroupedInputs>
@@ -83,11 +148,20 @@ const NewPatient = ({ setFormOpen }) => {
                 type="tel"
                 label="Phone Number"
                 id="phone"
+                value={formValues.phone}
+                onChange={handleInputChange}
               />
             </GroupedInputs>
 
             <GroupedInputs title="Email">
-              <FormInput name="email" type="email" label="Email" id="email" />
+              <FormInput
+                name="email"
+                type="email"
+                label="Email"
+                id="email"
+                value={formValues.email}
+                onChange={handleInputChange}
+              />
             </GroupedInputs>
           </div>
 
@@ -97,6 +171,7 @@ const NewPatient = ({ setFormOpen }) => {
               id="marital_status"
               label=""
               options={maritalStatusOptions}
+              value={formValues.marital_status}
               onChange={handleInputChange}
               //  value={formValues.gender}
             />
@@ -105,16 +180,23 @@ const NewPatient = ({ setFormOpen }) => {
           <div className="title-section">
             <h2>Emergency Contact</h2>
           </div>
-          <GroupedInputs special_class="special_class" title="Emergency Contact">
+          <GroupedInputs
+            special_class="special_class"
+            title="Emergency Contact"
+          >
             <FormInput
               name="emergency_first_name"
               label="First Name"
               id="emergency_first_name"
+              value={formValues.emergency_first_name}
+              onChange={handleInputChange}
             />
             <FormInput
               name="emergency_last_name"
               label="Last Name"
               id="emergency_last_name"
+              value={formValues.emergency_last_name}
+              onChange={handleInputChange}
             />
           </GroupedInputs>
 
@@ -124,6 +206,8 @@ const NewPatient = ({ setFormOpen }) => {
               name="emergency_relationship"
               label="Relationship"
               id="emergency_relationship"
+              value={formValues.emergency_relationship}
+              onChange={handleInputChange}
             />
 
             <FormInput
@@ -131,6 +215,8 @@ const NewPatient = ({ setFormOpen }) => {
               type="tel"
               label="Contact Number"
               id="emergency_phone"
+              value={formValues.emergency_phone}
+              onChange={handleInputChange}
             />
           </GroupedInputs>
 
@@ -152,12 +238,17 @@ const NewPatient = ({ setFormOpen }) => {
             <h2>Maternal Profile</h2>
           </div>
 
-          <GroupedInputs special_class="special_class" title="Last Menstrual Period & Expected Delivery Date">
+          <GroupedInputs
+            special_class="special_class"
+            title="Last Menstrual Period & Expected Delivery Date"
+          >
             <FormInput
               name="lmp"
               label="LMP"
               id="lmp"
               type="date"
+              value={formValues.lmp}
+              onChange={handleInputChange}
             />
 
             <FormInput
@@ -165,16 +256,19 @@ const NewPatient = ({ setFormOpen }) => {
               label="EDD"
               id="edd"
               type="date"
+              value={formValues.edd}
+              onChange={handleInputChange}
             />
           </GroupedInputs>
 
-          
           <GroupedInputs title="Gravida & Parity">
             <FormInput
               name="gravida"
               label="Gravida"
               id="gravida"
               type="number"
+              value={formValues.gravida}
+              onChange={handleInputChange}
             />
 
             <FormInput
@@ -182,24 +276,29 @@ const NewPatient = ({ setFormOpen }) => {
               label="Parity"
               id="parity"
               type="number"
+              onChange={handleInputChange}
             />
           </GroupedInputs>
 
-          
           <GroupedInputs special_class="special_class" title="Height & Weight">
             <FormInput
               name="height"
               label="Height"
               id="height"
-              placeholder="ft"
-              
+              placeholder="Ft"
+              type="number"
+              value={formValues.height}
+              onChange={handleInputChange}
             />
 
             <FormInput
               name="weight"
               label="Weight"
               id="weight"
-               placeholder="Kgs"
+              placeholder="Kgs"
+              type="number"
+              value={formValues.weight}
+              onChange={handleInputChange}
             />
           </GroupedInputs>
 
@@ -208,8 +307,21 @@ const NewPatient = ({ setFormOpen }) => {
           </button>
         </form>
       </div>
+      {/* {checkIn ? <CheckinCard /> : null} */}
     </div>
   );
 };
 
 export default NewPatient;
+
+//  // const { name, value } = e.target;
+//   // setFormValues({ ...formValues, [name]: value });
+//   // console.log(formValues)
+
+//   for (let val of Object.keys(formValues)) {
+//     // console.log(val, formValues[val])
+//     setFormValues({ ...formValues, [val]: e.target[`${val}`].value });
+//     // console.log(val, e.target[`${val}`].value)
+//   }
+//   console.log(formValues)
+//   // console.log(e.target[name]);

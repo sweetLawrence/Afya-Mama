@@ -1,9 +1,9 @@
 .newpatient {
   position: fixed;
   width: 60%;
-  min-height: 60vh;
-  max-height: 98vh;
-  top: 50%;
+  min-height: 50vh;
+  max-height: 85vh;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;

@@ -39,15 +39,15 @@
   padding: 0.9em;
   margin-bottom: 0.4em;
   width: 95%;
-  border-top-right-radius: 40px;
-  border-bottom-right-radius: 40px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .navigation .nav-items .row:hover {
   background: var(--hover);
 }
-.navigation .nav-items .row.active{
-    background: var(--blue);
-    color: white;
+.navigation .nav-items .row.active {
+  background: var(--blue);
+  color: white;
 }
 
 .dashboard {
@@ -75,7 +75,7 @@
 .intake .search {
   outline: none;
   border: none;
-  width: 70%;
+  width: 75%;
   border-radius: 3px;
   background: var(--hover);
   color: var(--text);
@@ -84,9 +84,14 @@
   transition: all 0.4s;
   padding-left: 2.5em;
 }
+
+/* .intake .top .logo-afya-mama .thelogo{
+  width: 45px;
+} */
+
 .intake .search:focus {
   background: white;
-  box-shadow: 0px 2px 2px rgb(142, 141, 141);
+  border: 1.5px solid var(--bg);
 }
 .intake .icon {
   background: var(--hover);
@@ -96,10 +101,7 @@
   left: 2%;
   cursor: pointer;
   /* border: 1px solid ; */
- 
-
 }
-
 
 /* Middle */
 .intake .middle {
@@ -109,7 +111,7 @@
   /* height: 20vh; */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 .intake .card-wrapper {
@@ -125,13 +127,15 @@
 .intake .card {
   background: var(--bg);
   background: white;
-  width: 200px;
-  height: 130px;
+  width: 310px;
+  height: 150px;
+
   margin: 0.4em;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 5px;
+  /* border-radius: 50%; */
 }
 
 /* .intake .xdf {
@@ -142,29 +146,92 @@
   border: 1px solid var(--pink);
 }
 
- /* Experimental */
+.intake .middle .admitted-patients {
+  border-radius: 3px;
+  padding: 1em;
+  margin-right: 0.2em;
+  width: 50%;
 
-.hist{
-    background: red;
-    height: 300px;
-    width: 300px;
-    position: absolute;
-    top: 20%;
-    left: 40%;
-    z-index: 2;
+  display: flex;
+  flex-direction: column;
+  /* align-items: start; */
+  justify-content: center;
+  background: white;
+  /* max-height: 250px; */
+
+  overflow: auto;
+}
+
+.intake .middle .admitted-patients h2 {
+  margin: 6px 0;
+  color: var(--pink);
+}
+.patients-table{
+  margin-top: .4em;
+  height: 10px;
+  /* overflow: auto; */
+}
+.patients-table-wrapper{
+  height: 150px;
+  
+  overflow: auto;
+}
+.intake .middle  .patient-detail .admitted_information {
+  display: flex;
+  /* background: red; */
+  align-items: start;
+  justify-content: space-between;
+}
+
+.intake .search_bar input {
+  /* margin: 0 auto; */
+  padding: 0.9em;
+  width: 100%;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  color: var(--blue);
+  background: rgb(95, 99, 104, 0.1);
+  font-weight: 600;
+  font-size: 1em;
+}
+
+.intake .middle .patients {
+  overflow: auto;
+  /* background: var(--bg); */
+  max-height: 130px;
+}
+
+.intake .middle .patient-detail {
+  /* background: grey; */
+  /* text-align: start; */
+  margin: 0.3em;
+  padding: 0.5em;
+}
+
+/* Experimental */
+
+.hist {
+  background: red;
+  height: 300px;
+  width: 300px;
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  z-index: 2;
 }
 
 .backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 0; /* Ensure the backdrop is on top */
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0; /* Ensure the backdrop is on top */
+}
 
-  /* Experimental */
+/* Experimental */
 .gradient-mask {
   width: 100%;
   height: 100%;
@@ -182,7 +249,7 @@
   justify-content: space-around;
 }
 .intake .statistics {
-  width: 30%;
+  /* width: 30%; */
 }
 .intake .stat {
   width: 100%;
@@ -213,7 +280,7 @@
 
 .intake .recent-activities {
   /* background: red; */
-  width: 65%;
+  width: 100%;
   padding: 0.5em;
   display: flex;
   flex-direction: column;
@@ -224,32 +291,31 @@
 
 /* Style for the table */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  /* Style for table headers */
-  th {
-    background-color: #f2f2f2;
-    padding: 8px;
-    text-align: left;
-    border: 1px solid #ddd;
-  }
-  
-  /* Style for table cells */
-  td {
-    padding: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  /* Alternate row background color */
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  /* Hover effect on table rows */
-  tbody tr:hover {
-    background-color: #e9ecef;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* Style for table headers */
+th {
+  background-color: #f2f2f2;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* Style for table cells */
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Alternate row background color */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Hover effect on table rows */
+tbody tr:hover {
+  background-color: #e9ecef;
+}

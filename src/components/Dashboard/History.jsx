@@ -1,8 +1,11 @@
 import React from 'react'
+import CheckinCard from '../CheckinCard'
 
 const History = () => {
   return (
-    <div className='his'>History</div>
+    <div className='his'>
+      <CheckinCard />
+    </div>
   )
 }
 

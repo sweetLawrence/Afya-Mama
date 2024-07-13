@@ -6,11 +6,11 @@ const Navigation = ({ onNavClick }) => {
   const [activeNavItem, setActiveNavItem] = useState("Intake");
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const search_param = String(searchParams.get('q')).toLowerCase();
+  const search_param = String(searchParams.get("q")).toLowerCase();
 
-  useEffect(()=>{
+  useEffect(() => {
     setActiveNavItem(search_param);
-  },[])
+  }, []);
 
   // console.log(searchParams.get('q'))
 
@@ -30,7 +30,11 @@ const Navigation = ({ onNavClick }) => {
           {Navdata.map((value, key) => (
             <li
               key={key}
-              className={`row ${value.name.toLowerCase() === activeNavItem.toLowerCase() ? "active" : ""}`}
+              className={`row ${
+                value.name.toLowerCase() === activeNavItem.toLowerCase()
+                  ? "active"
+                  : ""
+              }`}
               onClick={() => handleNavClick(value)}
             >
               {value.name}
