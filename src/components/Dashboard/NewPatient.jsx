@@ -7,6 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import CheckinCard from "../CheckinCard";
 import { Toaster, toast } from "sonner";
 import axiosInstance from "../../utils/axios";
+import CloseIcon from "@mui/icons-material/Close";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
@@ -76,6 +77,9 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
     <div className="newpatient">
       <div className="title-section">
         <h2>New Patient Registration</h2>
+        <div className="close_icon" onClick={() => setFormOpen(false)}>
+          <CloseIcon />
+        </div>
       </div>
       <div className="form-section">
         <form onSubmit={handleSubmit}>

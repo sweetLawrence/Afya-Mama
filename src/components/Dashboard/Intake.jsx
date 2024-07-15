@@ -181,6 +181,7 @@ const Intake = () => {
   const formOpenParam = searchParams.get("form") === "open";
   const [formOpen, setFormOpen] = useState(formOpenParam);
   const [patients, setPatients] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const [fetchAction, setFetchAction] = useState(false);
 
@@ -217,7 +218,12 @@ const Intake = () => {
     fetchPatients();
   }, [fetchAction]);
 
-  // alert(fetchAction)
+  const filteredPatients = patients.filter(
+    (patient) =>
+      patient.first_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      patient.last_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      patient.national_id.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="intake">
@@ -227,7 +233,11 @@ const Intake = () => {
         <div className="icon">
           <SearchIcon style={{ color: "#3c4043" }} />
         </div>
-        <input className="search" type="text" placeholder="Search" />
+        <input
+          className="search"
+          type="text"
+          placeholder="Search Patient By National ID"
+        />
       </div>
 
       <div className="middle">
@@ -241,7 +251,12 @@ const Intake = () => {
         <div className="admitted-patients">
           <h2>Admitted Patients</h2>
           <div className="search_bar">
-            <input type="text" placeholder="search patient" />
+            <input
+              type="text"
+              placeholder="search patient"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
           <div className="patients-table-wrapper">
             <table className="patients-table">
@@ -252,39 +267,73 @@ const Intake = () => {
                   <th>Check-in Time</th>
                 </tr>
               </thead>
-              <tbody>
-                {/* <tr>
-                  <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
-                  <td style={{ color: "#33FF8D" }}>25362803</td>
-                  <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
-                </tr>
-                <tr>
-                  <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
-                  <td style={{ color: "#FF33E9" }}>41626032</td>
-                  <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
-                </tr>
-                <tr>
-                  <td style={{ color: "#3380FF" }}>Alex Danvers</td>
-                  <td style={{ color: "#FF33F3" }}>32247894</td>
-                  <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
-                </tr> */}
+              {/* <tbody>
+               
 
                 {patients.map((patient) => (
                   <tr key={patient.id}>
-                    <td style={{ color: "#336BFF", fontWeight: "600",border: 'none', }}>
+                    <td
+                      style={{
+                        color: "#336BFF",
+                        fontWeight: "600",
+                        border: "none",
+                      }}
+                    >
                       {patient.first_name} {patient.last_name}
                     </td>
-                    <td style={{ color: "#336BFF", fontWeight: "600",border: 'none',background:'' }}>
+                    <td
+                      style={{
+                        color: "#336BFF",
+                        fontWeight: "600",
+                        border: "none",
+                        background: "",
+                      }}
+                    >
                       {patient.national_id}
                     </td>
                     <td
                       style={{
                         color: "#336BFF",
                         fontWeight: "600",
-                        border: 'none',
+                        border: "none",
                       }}
                     >
                       {patient.time},{patient.date}
+                    </td>
+                  </tr>
+                ))}
+              </tbody> */}
+
+              <tbody>
+                {filteredPatients.map((patient) => (
+                  <tr key={patient.id}>
+                    <td
+                      style={{
+                        color: "#336BFF",
+                        fontWeight: "600",
+                        border: "none",
+                      }}
+                    >
+                      {patient.first_name} {patient.last_name}
+                    </td>
+                    <td
+                      style={{
+                        color: "#336BFF",
+                        fontWeight: "600",
+                        border: "none",
+                        background: "",
+                      }}
+                    >
+                      {patient.national_id}
+                    </td>
+                    <td
+                      style={{
+                        color: "#336BFF",
+                        fontWeight: "600",
+                        border: "none",
+                      }}
+                    >
+                      {patient.time}, {patient.date}
                     </td>
                   </tr>
                 ))}
@@ -350,3 +399,21 @@ const Intake = () => {
 };
 
 export default Intake;
+
+{
+  /* <tr>
+                  <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
+                  <td style={{ color: "#33FF8D" }}>25362803</td>
+                  <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
+                </tr>
+                <tr>
+                  <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
+                  <td style={{ color: "#FF33E9" }}>41626032</td>
+                  <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
+                </tr>
+                <tr>
+                  <td style={{ color: "#3380FF" }}>Alex Danvers</td>
+                  <td style={{ color: "#FF33F3" }}>32247894</td>
+                  <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
+                </tr> */
+}
