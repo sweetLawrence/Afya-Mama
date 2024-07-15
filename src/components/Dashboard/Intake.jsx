@@ -171,6 +171,7 @@ import AddIcon from "@mui/icons-material/Add";
 import NewPatient from "./NewPatient";
 import { useSearchParams } from "react-router-dom";
 import { Toaster, toast } from "sonner";
+import 'animate.css'
 
 import afyamamalogo from "../../assets/images/afyamama.png";
 import CheckinCard from "../CheckinCard";
@@ -306,13 +307,15 @@ const Intake = () => {
 
               <tbody>
                 {filteredPatients.map((patient) => (
-                  <tr key={patient.id}>
+                  <tr key={patient.id} className="animate__animated animate__fadeInUp">
                     <td
                       style={{
                         color: "#336BFF",
                         fontWeight: "600",
                         border: "none",
                       }}
+
+                      
                     >
                       {patient.first_name} {patient.last_name}
                     </td>

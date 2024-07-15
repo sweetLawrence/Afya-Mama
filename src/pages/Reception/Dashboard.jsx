@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "../styles/dashboard.css";
-import Navigation from "../components/Navigation";
-import DisplayArea from "../components/DisplayArea";
-import Intake from "../components/Dashboard/Intake";
+import "../../styles/dashboard.css";
+import Navigation from "../../components/Navigation";
+import DisplayArea from "../../components/DisplayArea";
+import Intake from "../../components/Dashboard/Intake";
 import { useSearchParams } from "react-router-dom";
 
 const Dashboard = () => {

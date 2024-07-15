@@ -5,7 +5,8 @@ import Loader from "./components/Loader";
 import Input from "./components/Input";
 import Login from "./components/Login";
 import ResetPassword from "./components/ResetPassword";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Reception/Dashboard";
+
 
 function App() {
   return (
