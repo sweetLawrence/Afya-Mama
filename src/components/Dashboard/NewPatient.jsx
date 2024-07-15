@@ -5,12 +5,12 @@ import GroupedInputs from "../Form/GroupedInputs";
 import SelectComponent from "../Form/SelectComponent";
 import { useSearchParams } from "react-router-dom";
 import CheckinCard from "../CheckinCard";
-import { Toaster, toast } from 'sonner'
+import { Toaster, toast } from "sonner";
 import axiosInstance from "../../utils/axios";
 // import { ToastContainer, toast } from 'react-toastify';
 // import 'react-toastify/dist/ReactToastify.css';
 
-const NewPatient = ({ setFormOpen,activateSonner }) => {
+const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
   const [formValues, setFormValues] = useState({
     date: "",
     time: "",
@@ -37,22 +37,23 @@ const NewPatient = ({ setFormOpen,activateSonner }) => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    axiosInstance.post('/api/collections/patients/records', formValues)
-      .then(response => {
+    axiosInstance
+      .post("/api/collections/patients/records", formValues)
+      .then((response) => {
         // activateSonner();
         toast.success("Patient Registered successfully");
         setFormOpen(false);
+        setFetchAction(!fetchAction);
+
         console.log("Form submitted successfully:", response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error submitting form:", error);
         // Handle error or display a toast message
         toast.error("Failed to submit form. Please try again.");
       });
 
-
     console.log(formValues);
-    activateSonner();
     setFormOpen(false);
     // alert(checkIn)
   }
@@ -283,6 +284,7 @@ const NewPatient = ({ setFormOpen,activateSonner }) => {
               label="Gravida"
               id="gravida"
               type="number"
+              min={0}
               value={formValues.gravida}
               onChange={handleInputChange}
             />
@@ -292,6 +294,7 @@ const NewPatient = ({ setFormOpen,activateSonner }) => {
               label="Parity"
               id="parity"
               type="number"
+              min={0}
               onChange={handleInputChange}
             />
           </GroupedInputs>
@@ -303,6 +306,7 @@ const NewPatient = ({ setFormOpen,activateSonner }) => {
               id="height"
               placeholder="Ft"
               type="number"
+              min={0}
               value={formValues.height}
               onChange={handleInputChange}
             />
@@ -313,6 +317,7 @@ const NewPatient = ({ setFormOpen,activateSonner }) => {
               id="weight"
               placeholder="Kgs"
               type="number"
+              min={0}
               value={formValues.weight}
               onChange={handleInputChange}
             />

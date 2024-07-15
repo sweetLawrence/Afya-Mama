@@ -182,16 +182,14 @@ const Intake = () => {
   const [formOpen, setFormOpen] = useState(formOpenParam);
   const [patients, setPatients] = useState([]);
 
+  const [fetchAction, setFetchAction] = useState(false);
+
   function openIntakeForm() {
     setFormOpen(true);
     const newSearchParams = new URLSearchParams(searchParams);
     newSearchParams.set("form", "open");
 
     setSearchParams(newSearchParams);
-  }
-
-  function activateSonner() {
-    // toast.success("Patient Registered successfully");
   }
 
   useEffect(() => {
@@ -204,22 +202,22 @@ const Intake = () => {
   }, [formOpen, searchParams, setSearchParams]);
 
   useEffect(() => {
-    // Function to fetch patients data
     const fetchPatients = async () => {
       try {
         const response = await axiosInstance.get(
           "/api/collections/patients/records"
-        ); // Replace with your actual API endpoint
-        // console.log(response.data.items)
-        setPatients(response.data.items); // Update state with fetched data
+        );
+        setPatients(response.data.items);
       } catch (error) {
         console.error("Error fetching patients:", error);
-        toast.error("Failed to fetch patients"); // Notify user of error
+        toast.error("Failed to fetch patients");
       }
     };
 
-    fetchPatients(); // Call fetchPatients function when component mounts
-  }, []);
+    fetchPatients();
+  }, [fetchAction]);
+
+  // alert(fetchAction)
 
   return (
     <div className="intake">
@@ -271,27 +269,23 @@ const Intake = () => {
                   <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
                 </tr> */}
 
-                {/* <tr>
-                  <td style={{ color: "#FF5733" }}>Brenda Audrey</td>
-                  <td style={{ color: "#33FF8D" }}>25362803</td>
-                  <td style={{ color: "#336BFF" }}>14:26HRS, Monday</td>
-                </tr>
-                <tr>
-                  <td style={{ color: "#FFBD33" }}>Maggie Swayer</td>
-                  <td style={{ color: "#FF33E9" }}>41626032</td>
-                  <td style={{ color: "#33FFEA" }}>23:49HRS, Monday</td>
-                </tr>
-                <tr>
-                  <td style={{ color: "#3380FF" }}>Alex Danvers</td>
-                  <td style={{ color: "#FF33F3" }}>32247894</td>
-                  <td style={{ color: "#33FFF4" }}>03:46HRS, Monday</td>
-                </tr> */}
-
                 {patients.map((patient) => (
                   <tr key={patient.id}>
-                    <td style={{ color: "#336BFF" }}>{patient.first_name}{' '}{patient.last_name}</td>
-                    <td style={{ color: "#FF5733" }}>{patient.national_id}</td>
-                    <td style={{ color: "#FFBD33" }}>{patient.time},{patient.date}</td>
+                    <td style={{ color: "#336BFF", fontWeight: "600",border: 'none', }}>
+                      {patient.first_name} {patient.last_name}
+                    </td>
+                    <td style={{ color: "#336BFF", fontWeight: "600",border: 'none',background:'' }}>
+                      {patient.national_id}
+                    </td>
+                    <td
+                      style={{
+                        color: "#336BFF",
+                        fontWeight: "600",
+                        border: 'none',
+                      }}
+                    >
+                      {patient.time},{patient.date}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -341,7 +335,13 @@ const Intake = () => {
       </div>
       <Toaster richColors position="top-center" />
       {formOpen ? (
-        <NewPatient setFormOpen={setFormOpen} activateSonner={activateSonner} />
+        <NewPatient
+          setFormOpen={setFormOpen}
+          fetchAction={fetchAction}
+          setFetchAction={setFetchAction}
+          patients={patients}
+          setPatients={setPatients}
+        />
       ) : (
         ""
       )}
