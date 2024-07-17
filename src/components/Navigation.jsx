@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import afyamamalogo from "../assets/images/afyamama.png";
 import { Navdata } from "../assets/Data/Navdata";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 const Navigation = ({ onNavClick }) => {
   const [activeNavItem, setActiveNavItem] = useState("Intake");
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const navigation = useNavigate();
+  
   const search_param = String(searchParams.get("q")).toLowerCase();
 
   useEffect(() => {
@@ -18,10 +19,13 @@ const Navigation = ({ onNavClick }) => {
     setActiveNavItem(value.name.toLowerCase());
     onNavClick(value.name);
   };
+  function goHome(){
+    navigation('/')
+  }
 
   return (
     <div className="navigation">
-      <div className="logo">
+      <div className="logo" onClick={goHome}>
         <img src={afyamamalogo} alt="logo" />
         <h2 className="title">Afya Mama</h2>
       </div>

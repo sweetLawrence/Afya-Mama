@@ -260,6 +260,7 @@ const Intake = () => {
             />
           </div>
           <div className="patients-table-wrapper">
+            
             <table className="patients-table">
               <thead>
                 <tr>
@@ -342,6 +343,7 @@ const Intake = () => {
                 ))}
               </tbody>
             </table>
+
           </div>
         </div>
       </div>

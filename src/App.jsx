@@ -6,6 +6,7 @@ import Input from "./components/Input";
 import Login from "./components/Login";
 import ResetPassword from "./components/ResetPassword";
 import Dashboard from "./pages/Reception/Dashboard";
+import DoctorDashboard from "./pages/Doctors/DoctorDashboard";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Route exact path="/" element={<Login />} />
           <Route exact path="/reset-password" element={<ResetPassword />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/doctor_dashboard" element={<DoctorDashboard />} />
         </Routes>
       </Router>
     </div>
