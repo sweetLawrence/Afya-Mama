@@ -51,10 +51,10 @@
   display: flex;
 }
 .doctor-dashboard .bottom-section .maternal-profile-and-test {
-  width: 70%;
+  width: 80%;
   /* background: var(--grey); */
   margin-top: -5%;
-  margin-left: 15%;
+  margin-left: 10%;
 }
 
 .doctor-dashboard .m-profile {
@@ -73,15 +73,15 @@
 }
 
 .doctor-dashboard .m-profile .pic {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   overflow: hidden;
   background: red;
   display: flex;
 }
 .doctor-dashboard .profile-pic {
-  width: 25%;
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +97,7 @@
 
 .doctor-dashboard .m-profile-details {
   /* background: red; */
-  width: 40%;
+  width: 50%;
   border-left: 1px solid var(--bg);
   border-right: 1px solid var(--bg);
 }
@@ -116,19 +116,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1em 0.5em;
+  padding: 1em 0.6em;
   font-weight: 500;
   border-bottom: 1.5px solid var(--bg);
+}
+.doctor-dashboard .age-and-companion .companion{
+    width: 69%;
+}
+.doctor-dashboard .b{
+    color: var(--blue);
+    font-weight: 600;
 }
 
 .m-profile-details .bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5em 0.5em;
+  padding: 1.5em 0.6em;
 }
 .m-profile-next {
-  width: 25%;
+  width: 20%;
   /* background: red; */
   display: flex;
   flex-direction: column;
@@ -176,7 +183,7 @@
 }
 
 .doctor-dashboard .bottom-section .admitted-patients-section {
-    width: 30%;
+    width: 40%;
     background: white;
     margin-right: .4em;
   
