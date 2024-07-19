@@ -1,0 +1,36 @@
+.direct-tests{
+    width: 600px;
+    border: 1.5px solid #dbf0f0;
+    /* border: 1.5px solid #F9C2D9; */
+    border-radius: 10px;
+    margin: 0.3em;
+    min-height: 320px;
+    max-height: 320px;
+    padding: 0.8em;
+
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.tests-card{
+    border: 2px solid var(--bg);
+    border-radius: 10px;
+    /* min-height: 80px;
+    max-height: 80px; */
+    /* background: red; */
+    width: 47%;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    padding: .2em .5em;
+    margin: .3em;
+
+}
+.tests-card p{
+    color: var(--blue);
+    font-weight: 600;
+    margin-left: 1.1em;
+}

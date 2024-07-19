@@ -1,0 +1,40 @@
+.labresults{
+    width: 300px;
+    border: 1.5px solid #dbf0f0;
+    border-radius: 10px;
+    margin: 0.3em;
+    min-height: 180px;
+    max-height: 180px;
+    padding: 0.8em;
+}
+.labresults .title{
+    font-size: 1em;
+    font-weight: 600;
+}
+.labresults .all-results{
+    overflow-y: auto;
+    height: 100%;
+    /* background: red; */
+}
+.labresults .results{
+    margin-top: .9em;
+    border-radius: 5px;
+    background: #dbf0f0;
+    /* background: #F8FCFC; */
+    /* background: #A4B8E8; */
+    padding: .5em .4em;
+    margin-bottom: .2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.labresults .results .name,.labresults .results .value{
+    color: var(--blue);
+    font-weight: 600;
+    font-size: .9em;
+}
+.labresults .results .value{
+    color: black;
+    font-weight: 500;
+}

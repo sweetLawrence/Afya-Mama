@@ -1,220 +1,130 @@
-/* TOP SECTION */
-.doctor-dashboard {
-  height: 100vh;
-  background: #f2f2f2;
-  overflow: hidden;
+.doctor-dashboard{
+    /* background: var(--bg); */
+    
 }
-.doctor-dashboard .top-section {
-  height: 120px;
-  background: var(--bg);
-  background: white;
-  background: linear-gradient(to right, #f178ab,#2b50aa);
-  background: linear-gradient(to right, #2b50aa,#f178ab);
+.doctor-nav{
+    padding: .3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--bg);
 }
-.doctor-dashboard .top-section .extreme-top {
-  height: 40px;
-  display: flex;
-  /* background: var(--blue); */
-  justify-content: space-between;
-  color: white;
-  /* color: black; */
-  font-weight: 600;
-  padding: 0.3em 1.9em 0.3em 1.3em;
-
-}
-
-.doctor-dashboard .top-section .logo {
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  width: 200px;
-  /* background: red; */
-}
-.doctor-dashboard .top-section img {
-  width: 70px;
-  /* background: green; */
-}
-
-.doctor-dashboard .top-section .logo-name {
-  width: 50%;
-  font-weight: 600;
-  font-size: 1.4em;
-  color: var(--blue);
-  color: white;
-  /* background: yellow; */
-}
-
-/* BOTTOM SECTION */
-
-.doctor-dashboard .bottom-section {
-  /* background: red; */
-  display: flex;
-}
-.doctor-dashboard .bottom-section .maternal-profile-and-test {
-  width: 80%;
-  /* background: var(--grey); */
-  margin-top: -5%;
-  margin-left: 10%;
-}
-
-.doctor-dashboard .m-profile {
-  border-radius: 5px;
-  border: 1px solid var(--bg);
-  margin: 0 auto;
-  width: 85%;
-  /* height: 200px;  */
-  padding: .5em;
-  background: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 1px 1px 15px rgb(169, 169, 169);
-  margin-top: 3%;
-}
-
-.doctor-dashboard .m-profile .pic {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: red;
-  display: flex;
-}
-.doctor-dashboard .profile-pic {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.doctor-dashboard .profile-pic img {
-  width: 100%;
-  object-fit: cover;
-  transition: all 0.2s;
-}
-.doctor-dashboard .profile-pic img:hover {
-  scale: 1.1;
-}
-
-.doctor-dashboard .m-profile-details {
-  /* background: red; */
-  width: 50%;
-  border-left: 1px solid var(--bg);
-  border-right: 1px solid var(--bg);
-}
-.doctor-dashboard .m-profile-details .top {
-  /* background: yellow; */
-}
-.doctor-dashboard .m-profile-details .top .name {
-  font-size: 1.2em;
-  font-weight: 600;
-  padding: 0.8em 0.4em;
-  border-bottom: 1.5px solid var(--bg);
-  /* background: pink; */
-}
-
-.doctor-dashboard .age-and-companion {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1em 0.6em;
-  font-weight: 500;
-  border-bottom: 1.5px solid var(--bg);
-}
-.doctor-dashboard .age-and-companion .companion{
-    width: 69%;
-}
-.doctor-dashboard .b{
-    color: var(--blue);
+.doctor-nav .logo{
+    display: flex;
+    align-items: center;
     font-weight: 600;
 }
-
-.m-profile-details .bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5em 0.6em;
+.doctor-nav img{
+    width: 75px;
 }
-.m-profile-next {
-  width: 20%;
-  /* background: red; */
-  display: flex;
-  flex-direction: column;
-  /* flex-wrap: wrap; */
-  align-items: center;
-  justify-content: center;
-}
-.m-profile-next .title {
-  font-size: 1.2em;
-  font-weight: 600;
-  padding: 0.4em 0.4em;
-  border-bottom: 1.5px solid var(--bg);
-  /* background: yellow; */
-}
-
-.m-profile-next .facility-details {
-  /* background: red; */
-  padding: 0.5em;
-}
-
-.m-profile-next .discharge {
-  /* width: 10px!important; */
-  /* background: red; */
-  padding: 0.1em;
-
-  text-align: center;
-  font-weight: 600;
-}
-.m-profile-next .discharge div {
-  border: 1px solid red;
-  padding: 0.7em;
-  border-radius: 5px;
-  margin: 1px auto;
-  width: 60%;
-}
-
-.m-profile-next .card {
-  width: 90%;
-  padding: 0.8em;
-  background: var(--blue);
-  /* border: 2px solid var(--blue); */
-  margin: .4em;
-  color: white;
-  border-radius: 3px;
-}
-
-.doctor-dashboard .bottom-section .admitted-patients-section {
-    width: 40%;
-    background: white;
-    margin-right: .4em;
-  
+.doctor-profile{
+    margin-right: .7em;
+    font-weight: 600;
     display: flex;
-    flex-direction: column;
-    /* align-items: start; */
-    justify-content: center;
-    background: white;
-  
-    border-radius: 3px;
-    padding: .8em;
-  
-    margin-top: 1%;
-  
-  }
-  .doctor-dashboard .admitted-patients h2 {
-      margin: 6px 0;
-      color: var(--pink);
-  }
-  .doctor-dashboard .search_bar input {
-      /* margin: 0 auto; */
-      padding: 0.6em;
-      width: 100%;
-      border-radius: 5px;
-      outline: none;
-      border: none;
-      color: var(--blue);
-      background: rgb(95, 99, 104, 0.1);
-      font-weight: 600;
-      font-size: 1em;
-    }
-.doctor-dashboard .m-test {
-  background: red;
+    align-items: center;
+    justify-content: space-around;
+    /* padding: .4em; */
+    /* background: red; */
+    width: 220px;
 }
+.doctor-profile .img-container{
+    background: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.doctor-profile img{
+    /* width: 60px; */
+    object-fit: cover;
+    scale: 1.2;
+}
+.main-section{
+    /* background: red; */
+    /* background: var(--bg); */
+    width: 75%;
+    border-radius: 10px;
+    padding: .4em;
+    margin: 0em .5em;
+    min-height: 83vh;
+    /* box-shadow: 1px 1px 15px rgb(213, 213, 213); */
+
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+}
+
+.main-section .right, .main-section .left{
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.actual-section{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* search */
+.search-input-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    background: white ;
+    min-width: 300px;
+    border-radius: 40px;
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    flex-grow: 1;
+  }
+  
+  

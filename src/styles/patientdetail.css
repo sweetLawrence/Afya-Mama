@@ -1,0 +1,68 @@
+.patientdetails {
+  /* background: var(--bg); */
+  width: 300px;
+  /* border: 1.5px solid var(--pink); */
+  border: 1.5px solid   #F9C2D9;
+  border: 1.5px solid   #dbf0f0;
+
+  border-radius: 10px;
+  margin: .3em;
+  min-height: 300px;
+  max-height: 320px;
+  padding: .5em;
+}
+.pic-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  padding: .3em;
+}
+
+.pic-name .img-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.pic-name img {
+  width: 100%;
+  object-fit: cover;
+  scale: 1.5;
+}
+.pic-name p{
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.patientdetails .contact-details{
+    /* background: var(--bg); */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: .3em;
+    margin-top: 4%;
+}
+.patientdetails .contact-details .title{
+    font-weight: 600;
+    font-size: 1.2em;
+    margin: .3em .3em .5em .3em;
+}
+.patientdetails .contact-details .details{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    /* background: red; */
+    width: 100%;
+    color: #a0a0a0;
+    margin-bottom: .5em;
+
+}
+.patientdetails .contact-details .details p{
+    margin-left: .9em;
+    font-size: .9em;
+}

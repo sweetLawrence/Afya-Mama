@@ -1,0 +1,63 @@
+.doctor-admitted-patients{
+    /* padding: .5em; */
+    margin-top: .6em;
+    /* background: red; */
+    /* width: 600px; */
+    border: 1.5px solid #dbf0f0;
+    /* border: 1.5px solid #F9C2D9; */
+    border-radius: 10px;
+    margin: 0.6em .1em;
+    /* min-height: 320px;
+    max-height: 320px; */
+    height: 83vh;
+    padding: 0.6em .6em;
+}
+
+.patients-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    overflow-y: auto;
+    padding-top: .5em;
+}
+
+.patient-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #dbf0f0;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    background: #f9f9f9;
+    cursor: pointer;
+    /* background: red; */
+}
+
+.patient-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-name {
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.patient-status {
+    font-size: 0.9em;
+    color: gray;
+}
+
+.discharge-button {
+    background: #f178ab;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 1.1em;
+    cursor: pointer;
+    /* font-size: .9em; */
+}
+
+.discharge-button:hover {
+    background: #d66796;
+}
