@@ -15,7 +15,7 @@ const PatientDetails = ({ patient }) => {
         </div>
         {/* <p>Ms. Amaya Lance</p> */}
         {/* {patient ?? <p>{patient.first_name} {patient.last_name}</p> :  <p>Lawrence</p>} */}
-        <p>{patient ? `Ms. ${patient.first_name} ${patient.last_name}` : "Ms. Alexis Swayer"}</p>
+        <p>{patient ? `Ms. ${patient.first_name} ${patient.last_name}` : <p style={{color:"#bfc0c3"}}>Name</p>}</p>
         
       </div>
 

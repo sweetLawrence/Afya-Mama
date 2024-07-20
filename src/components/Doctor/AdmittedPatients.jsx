@@ -39,8 +39,8 @@ const AdmittedPatients = ({ onSelectPatient }) => {
 
   return (
     <div className="doctor-admitted-patients">
-      <SearchInput />
-      {/* <h2>Admitted Patients</h2> */}
+      {/* <SearchInput /> */}
+      <h3>Admitted Patients</h3>
       <div className="patients-list">
         {patients.map((patient) => (
           <PatientCard

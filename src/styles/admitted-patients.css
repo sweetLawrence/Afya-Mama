@@ -2,17 +2,22 @@
     /* padding: .5em; */
     margin-top: .6em;
     /* background: red; */
-    /* width: 600px; */
+    width: 320px;
     border: 1.5px solid #dbf0f0;
     /* border: 1.5px solid #F9C2D9; */
     border-radius: 10px;
-    margin: 0.6em .1em;
+    margin: 0.6em .3em;
     /* min-height: 320px;
     max-height: 320px; */
-    height: 83vh;
+    height: 79.5vh;
     padding: 0.6em .6em;
 }
 
+.doctor-admitted-patients h3{
+    /* background: red; */
+    padding: .5em;
+    color: var(--pink);
+}
 .patients-list {
     display: flex;
     flex-direction: column;

@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 
-
-const TestsCard = ({icon, text}) => {
+const TestsCard = ({ icon, text, openTestModal }) => {
   return (
-    <div className='tests-card'>
-        {icon}
-        {/* <FavoriteIcon style={{color:'#f178ab', fontSize:"2.4em"}}/> */}
-        <p>{text}</p>
+    <div className="tests-card" onClick={() => openTestModal(text)}>
+      {icon}
+      {/* <FavoriteIcon style={{color:'#f178ab', fontSize:"2.4em"}}/> */}
+      <p>{text}</p>
     </div>
-  )
-}
+  );
+};
 
-export default TestsCard
+export default TestsCard;

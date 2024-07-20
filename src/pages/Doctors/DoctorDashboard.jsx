@@ -32,7 +32,7 @@ const DoctorDashboard = () => {
           <div className="img-container">
             <img src={DOCTOR} alt="doctor's image" />
           </div>
-          <p>Dr. Lawrence </p>
+          <p>Dr. Lawrence Tsungu</p>
         </div>
       </div>
 
@@ -45,8 +45,8 @@ const DoctorDashboard = () => {
             <LabResults />
           </div>
           <div className="right">
-            <MaternalProfile patient={selectedPatient}/>
-            <DirectTests />
+            <MaternalProfile patient={selectedPatient} />
+            <DirectTests patient={selectedPatient}/>
           </div>
 
           {/* <MaternalProfile /> */}

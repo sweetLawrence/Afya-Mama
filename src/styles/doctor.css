@@ -8,11 +8,13 @@
     align-items: center;
     justify-content: space-between;
     border-bottom: 2px solid var(--bg);
+    background: linear-gradient(to right, var(--blue), var(--pink));
 }
 .doctor-nav .logo{
     display: flex;
     align-items: center;
     font-weight: 600;
+    color: white;
 }
 .doctor-nav img{
     width: 75px;
@@ -26,11 +28,12 @@
     /* padding: .4em; */
     /* background: red; */
     width: 220px;
+    color: white;
 }
 .doctor-profile .img-container{
     background: white;
-    width: 60px;
-    height: 60px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,7 +43,7 @@
 .doctor-profile img{
     /* width: 60px; */
     object-fit: cover;
-    scale: 1.2;
+    scale: .6;
 }
 .main-section{
     /* background: red; */
@@ -53,7 +56,7 @@
     /* box-shadow: 1px 1px 15px rgb(213, 213, 213); */
 
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* justify-content: space-around; */
 }
 
@@ -66,6 +69,7 @@
 
 .actual-section{
     display: flex;
+    /* flex-wrap: wrap; */
 }
 
 
