@@ -37,6 +37,12 @@
     cursor: pointer;
     /* background: red; */
 }
+.patient-card.selected{
+    background: var(--bg);
+    background: #dbf0f0;
+   
+    background: #F9C2D9;
+}
 
 .patient-info {
     display: flex;

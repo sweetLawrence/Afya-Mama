@@ -5,7 +5,9 @@ import calculateGestationalAgeAndTrimester from "../../../utils/calculate";
 import CloseIcon from "@mui/icons-material/Close";
 
 const DirectTestsModal = ({ patient, text, closeTestModal }) => {
-  const [results, setResults] = useState({});
+  const [results, setResults] = useState({
+    patient_id: patient.id,
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -44,7 +46,7 @@ const DirectTestsModal = ({ patient, text, closeTestModal }) => {
     ...(commonTests[text_parameter] || []),
     ...(trimesterTests[trim_][text_parameter] || []),
   ];
-
+  // alert(text )
   return (
     <div className="direct-tests-modal animate__animated animate__fadeIn">
       <div className="top-case">
@@ -63,18 +65,28 @@ const DirectTestsModal = ({ patient, text, closeTestModal }) => {
         {tests.map((test) => (
           <div className="row" key={test.key}>
             <label>{test.name}:</label>
-            <input
-              type="text"
-              name={test.key}
-              value={results[test.key] || ""}
-              onChange={handleChange}
-              placeholder={`${test.name.toLowerCase()}...`}
-            />
+            {test.name.toLowerCase() == "general health" ? (
+              <textarea
+                name={test.key}
+                value={results[test.key] || ""}
+                onChange={handleChange}
+                placeholder={`${test.name.toLowerCase()}...`}
+                id="w3review"
+              ></textarea>
+            ) : (
+              <input
+                type="text"
+                name={test.key}
+                value={results[test.key] || ""}
+                onChange={handleChange}
+                placeholder={`${test.name.toLowerCase()}...`}
+              />
+            )}
           </div>
         ))}
 
         <div className="navigations">
-          <button type="submit">Submit</button>
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>

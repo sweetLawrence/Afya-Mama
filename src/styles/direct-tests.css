@@ -30,10 +30,17 @@
   margin: 0.3em;
   cursor: pointer;
   transition: all 0.2s;
+ 
 }
 .tests-card:hover {
   border: 2px solid #f9c2d9;
 }
+.tests-card.disabled {
+  opacity: 0.1;
+  cursor: not-allowed;
+  /* background: red; */
+}
+
 .tests-card p {
   color: var(--blue);
   font-weight: 600;
@@ -102,6 +109,23 @@
   display: flex;
   justify-content: center;
   align-items: start;
-  scale: .9;
+  /* scale: .9; */
+  /* background: red; */
+  /* padding-left:20% ; */
+  width: 100%;
   /* padding: .5em; */
+}
+.direct-tests-modal .navigations button{
+  width: 80%!important;;
+}
+
+.direct-tests-form textarea{
+  outline: none;
+  border-radius: 3px;
+  padding: .3em;
+  min-height: 200px;
+  min-width: 70%;
+  background: black;
+  color: var(--pink);
+  font-size: 1.4em;
 }

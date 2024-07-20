@@ -15,6 +15,13 @@ const AdmittedPatients = ({ onSelectPatient }) => {
           "/api/collections/patients/records"
         );
         setPatients(response.data.items);
+
+        if (response.data.items.length > 0) {
+          const firstPatient = response.data.items[0];
+          setSelectedPatient(firstPatient);
+          onSelectPatient(firstPatient);
+        }
+
       } catch (error) {
         console.error("Error fetching patients:", error);
         toast.error("Failed to fetch patients");
@@ -48,6 +55,7 @@ const AdmittedPatients = ({ onSelectPatient }) => {
             patient={patient}
             onDischarge={handleDischarge}
             onSelect={() => handleSelectPatient(patient)}
+            isSelected={selectedPatient && selectedPatient.id === patient.id}
           />
         ))}
       </div>
