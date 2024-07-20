@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../styles/doctor.css";
 import PROFILE from "../../assets/images/afyamama.png";
 import SearchInput from "../../components/Doctor/SearchInput";
-import DOCTOR from "../../assets/images/profile.png";
+import DOCTOR from "../../assets/images/profile2.jpeg";
 import PatientDetails from "../../components/Doctor/PatientDetails";
 import MaternalProfile from "../../components/Doctor/MaternalProfile";
 import LabResults from "../../components/Doctor/LabResults";
