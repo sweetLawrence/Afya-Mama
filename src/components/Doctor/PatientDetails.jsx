@@ -4,6 +4,8 @@ import DOCTOR from "../../assets/images/profile.png";
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import EmailIcon from '@mui/icons-material/Email';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import HomeIcon from '@mui/icons-material/Home';
+import PaymentIcon from '@mui/icons-material/Payment';
 
 const PatientDetails = ({ patient }) => {
   console.log(patient)
@@ -32,6 +34,18 @@ const PatientDetails = ({ patient }) => {
             {/* <p>tsungulawrence@gmail.com</p> */}
             {/* <p>{patient.email}</p> */}
             <p>{patient ? `${patient.email}` : "template@domain"}</p>
+        </div>
+        <div className="details">
+            <HomeIcon style={{ color: '#2b50aa', fontSize:"1.3em" }}/>
+            {/* <p>tsungulawrence@gmail.com</p> */}
+            {/* <p>{patient.email}</p> */}
+            <p>{patient ? `${patient.address}` : "Weya Street"}</p>
+        </div>
+        <div className="details">
+            <PaymentIcon style={{ color: '#2b50aa', fontSize:"1.3em" }}/>
+            {/* <p>tsungulawrence@gmail.com</p> */}
+            {/* <p>{patient.email}</p> */}
+            <p>{patient ? `${patient.national_id}` : "10101010"}</p>
         </div>
         {/* <div className="details">
             <PhoneAndroidIcon style={{ color: '#2b50aa' }}/>
