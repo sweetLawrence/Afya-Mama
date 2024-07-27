@@ -63,6 +63,8 @@
   background: var(--bg);
   position: absolute;
   top: 0;
+  /* background: red; */
+  overflow: auto;
 }
 
 .direct-tests-form {
@@ -74,6 +76,11 @@
   margin: 0.3em 0;
   /* width: 90%; */
   /* margin: 0 auto; */
+  /* background: rebeccapurple; */
+  /* position: absolute; */
+  /* top: 0;
+  left: 0; */
+  /* overflow: auto; */
 }
 .direct-tests-form .row {
   display: flex;
@@ -91,18 +98,78 @@
   padding: 0.5em;
   width: 200px;
   font-weight: 600;
+ 
+}
+
+.direct-tests-form td:hover{
+  background: var(--bg);
+  background: #FDE7F0;
+  color: white;
+  cursor: pointer;
+  /* border: .1px solid red; */
+}
+.direct-tests-form td{
+  background: white;
+}
+
+.direct-tests-form .d-input{
+  outline: none;
+  border: none;
+  padding: .2em;
+  font-size: 1.1em;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  border-radius: 4px;
+  /* background: #f5f5f5; */
+  /* border-bottom: 1.4px solid #F9C2D9; */
+
+}
+.direct-tests-form .d-select{
+  color: var(--blue);
+  /* font-weight: 600; */
+
+  outline: none;
+  border: 2px solid var(--pink);
+  font-weight: 500;
+  padding: .2em;
+  font-size: 1.1em;
+  background: transparent;
+  width: 80%;
+  height: 100%;
+  /* border: 1px solid red; */
+  border-radius: 4px;
+  /* background: #f5f5f5; */
+  /* border-bottom: 1.4px solid #F9C2D9; */
+
+
+}
+
+.direct-tests-form .d-option{
+  /* color: red; */
+
 }
 
 .direct-tests-modal .top-case{
-  width: 60%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--bg);
   background: linear-gradient(to right, var(--blue), var(--pink));
+  background: var(--blue); 
+  /* TODO */
   padding: .5em;
   border-radius: 3px;
   color: white;
+  position: sticky;
+  top: 0;
+  /* margin-top: -20%; */
+  /* padding-top: 0; */
+  z-index: 1;
+
+  
 }
 
 .direct-tests-modal .navigations{
@@ -116,7 +183,7 @@
   /* padding: .5em; */
 }
 .direct-tests-modal .navigations button{
-  width: 80%!important;;
+  width: 100%!important;;
 }
 
 .direct-tests-form textarea{
