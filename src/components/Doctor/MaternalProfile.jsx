@@ -20,8 +20,17 @@ const MaternalProfile = ({ patient }) => {
     }
   }, [patient]);
 
+  let borderColor = ""
+  if(patient && patient.hiv_status=="+"){
+    borderColor = '#f178ab'
+  }
+  else{
+    borderColor = '#dbf0f0';
+  }
+
+
   return (
-    <div className="maternalprofile">
+    <div className="maternalprofile" style={{borderColor:borderColor}}>
       <p className="title">Overview:</p>
 
       <div className="all-items">

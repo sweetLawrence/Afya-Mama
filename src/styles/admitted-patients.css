@@ -33,15 +33,15 @@
     border: 1px solid #dbf0f0;
     border-radius: 8px;
     padding: 0.5em 1em;
-    background: #f9f9f9;
+    /* background: #f9f9f9; */
     cursor: pointer;
     /* background: red; */
 }
 .patient-card.selected{
-    background: var(--bg);
-    background: #dbf0f0;
-   
-    background: #F9C2D9;
+    /* background: var(--bg); */
+    /* background: #dbf0f0; */
+   border: 1px solid var(--pink);
+    /* background: #F9C2D9; */
 }
 
 .patient-info {
@@ -61,6 +61,7 @@
 
 .discharge-button {
     background: #f178ab;
+    background: var(--blue);
     color: white;
     border: none;
     border-radius: 5px;

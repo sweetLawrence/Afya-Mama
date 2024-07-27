@@ -106,7 +106,7 @@
   background: #94ABE4;
   background: #e1e1e8; */
   /* background: #FDE7F0; */
-  color: white;
+  /* color: white; */
   cursor: pointer;
   /* border: .1px solid red; */
 }
@@ -133,7 +133,7 @@
   /* font-weight: 600; */
 
   outline: none;
-  border: 2px solid var(--pink);
+  /* border: 2px solid var(--pink); */
   /* border: 2px solid #F9C2D9; */
   /* background: #f9c2d9; */
   font-weight: 500;
