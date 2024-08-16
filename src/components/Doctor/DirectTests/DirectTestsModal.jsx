@@ -1,343 +1,207 @@
 // import React, { useState } from "react";
-// import "animate.css";
-// import { commonTests, trimesterTests } from "../../../utils/testcategories";
-// import calculateGestationalAgeAndTrimester from "../../../utils/calculate";
-// import CloseIcon from "@mui/icons-material/Close";
+// import {
+//   vital_signs,
+//   random_blood_sugar,
+//   general_exam,
+// } from "../../../utils/testcategories";
 
-// const DirectTestsModal = ({ patient, text, closeTestModal }) => {
-//   const [results, setResults] = useState({
-//     patient_id: patient.id,
-//   });
+// const DirectTestsModal = ({ text, closeTestModal, patient }) => {
+//   const [results, setResults] = useState({});
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setResults({ ...results, [name]: value });
-//   };
+//   const handleInputChange = () => {};
 
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     console.log("Form submitted", results);
-//     closeTestModal();
-//   };
-
-//   let trim_ = "";
-//   let { trimester } = calculateGestationalAgeAndTrimester(patient.lmp);
-//   if (trimester === "1st") {
-//     trim_ = "firstTrimester";
-//   } else if (trimester === "2nd") {
-//     trim_ = "secondTrimester";
-//   } else if (trimester === "3rd") {
-//     trim_ = "thirdTrimester";
-//   }
-
-//   let text_parameter = "";
-//   if (text == "Vital Signs") {
-//     text_parameter = "VitalSigns";
-//   } else if (text == "General Exam") {
-//     text_parameter = "GeneralExam";
-//   } else if (text == "Abdominal Exam") {
-//     text_parameter = "AbdominalExam";
-//   } else {
-//     text_parameter = text;
-//   }
-
-//   const tests = [
-//     ...(commonTests[text_parameter] || []),
-//     ...(trimesterTests[trim_][text_parameter] || []),
-//   ];
-//   // alert(text )
-//   return (
-//     <div className="direct-tests-modal animate__animated animate__fadeIn">
-//       <div className="top-case">
-//         <h2>{text}</h2>
-//         <CloseIcon
-//           style={{
-//             fontSize: "2em",
-//             // border: "1.5px solid #2b50aa",
-//             borderRadius: "50%",
-//           }}
-//           onClick={closeTestModal}
-//         />
-//       </div>
-
-//       <form className="direct-tests-form" onSubmit={handleSubmit}>
-//         {tests.map((test) => (
-//           <div className="row" key={test.key}>
-//             <label>{test.name}:</label>
-//             {test.name.toLowerCase() == "general health" ? (
-//               <textarea
-//                 name={test.key}
-//                 value={results[test.key] || ""}
-//                 onChange={handleChange}
-//                 placeholder={`${test.name.toLowerCase()}...`}
-//                 id="w3review"
-//               ></textarea>
-//             ) : (
-//               <input
-//                 type="text"
-//                 name={test.key}
-//                 value={results[test.key] || ""}
-//                 onChange={handleChange}
-//                 placeholder={`${test.name.toLowerCase()}...`}
-//               />
-//             )}
-//           </div>
-//         ))}
-
-//         <div className="navigations">
-//           <button type="submit">Save</button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default DirectTestsModal;
-
-
-// import React, { useState } from "react";
-// import "animate.css";
-// import { commonTests, trimesterTests } from "../../../utils/testcategories";
-// import calculateGestationalAgeAndTrimester from "../../../utils/calculate";
-// import CloseIcon from "@mui/icons-material/Close";
-// import "../../../styles/direct-tests.css"; // Make sure to add your styles here
-
-// const DirectTestsModal = ({ patient, text, closeTestModal }) => {
-//   const [results, setResults] = useState({
-//     patient_id: patient.id,
-//   });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setResults({ ...results, [name]: value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     console.log("Form submitted", results);
-//     closeTestModal();
-//   };
-
-//   let trim_ = "";
-//   let { trimester } = calculateGestationalAgeAndTrimester(patient.lmp);
-//   if (trimester === "1st") {
-//     trim_ = "firstTrimester";
-//   } else if (trimester === "2nd") {
-//     trim_ = "secondTrimester";
-//   } else if (trimester === "3rd") {
-//     trim_ = "thirdTrimester";
-//   }
-
-//   let text_parameter = "";
-//   if (text === "Vital Signs") {
-//     text_parameter = "VitalSigns";
-//   } else if (text === "General Exam") {
-//     text_parameter = "GeneralExam";
-//   } else if (text === "Abdominal Exam") {
-//     text_parameter = "AbdominalExam";
-//   } else {
-//     text_parameter = text;
-//   }
-
-//   const tests = [
-//     ...(commonTests[text_parameter] || []),
-//     ...(trimesterTests[trim_][text_parameter] || []),
-//   ];
-
-//   return (
-//     <div className="direct-tests-modal animate__animated animate__fadeIn">
-//       <div className="top-case">
-//         <h2>{text}</h2>
-//         <CloseIcon
-//           style={{
-//             fontSize: "2em",
-//             borderRadius: "50%",
-//             cursor: "pointer"
-//           }}
-//           onClick={closeTestModal}
-//         />
-//       </div>
-
-//       <form className="direct-tests-form" onSubmit={handleSubmit}>
-//         <table className="tests-table">
-//           <thead>
-//             <tr>
-//               <th>Test Name</th>
-//               <th>Result</th>
-//               <th>Comment</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {tests.map((test) => (
-//               <tr key={test.key}>
-//                 <td>{test.name}:</td>
-//                 <td>
-//                   {test.name.toLowerCase() === "general health" ? (
-//                     <textarea
-//                       name={test.key}
-//                       value={results[test.key] || ""}
-//                       onChange={handleChange}
-//                       // placeholder={`${test.name.toLowerCase()}...`}
-//                     ></textarea>
-//                   ) : (
-//                     <input
-//                       type="text"
-//                       name={test.key}
-//                       value={results[test.key] || ""}
-//                       onChange={handleChange}
-//                       className="d-input"
-//                       // placeholder={`${test.name.toLowerCase()}...`}
-//                     />
-//                   )}
-//                 </td>
-//                 <td>
-//                 <input
-//                       type="text"
-//                       name={test.comment}
-//                       // value={results[test.key] || ""}
-//                       onChange={handleChange}
-//                       className="d-input"
-//                       // placeholder={`Comment...`}
-//                     />
-//                 </td>
-//               </tr>
+//   function getInference(test, value, category) {
+//     let range = category[test];
+//     if (Array.isArray(range)) {
+//       if (category === vital_signs && typeof range[0] == "number") {
+//         const numeric_value = parseFloat(value);
+//         if (isNaN(numeric_value)) {
+//           return "Invalid";
+//         } else if (numeric_value < range[0]) {
+//           return "Low";
+//         } else if (numeric_value > range[1]) {
+//           return "High";
+//         } else {
+//           return "Normal";
+//         }
+//       } else if (category == random_blood_sugar) {
+//         return (
+//           <select
+//             value={value}
+//             onChange={(e) => handleInputChange(test, e.target.value)}
+//           >
+//             <option value="normal">Normal</option>
+//             <option value="low">Low</option>
+//             <option value="high">High</option>
+//           </select>
+//         );
+//       } else if (category === general_exam) {
+//         return (
+//           <select
+//             value={value}
+//             onChange={(e) => handleInputChange(test, e.target.value)}
+//           >
+//             {range.map((option) => (
+//               <option key={option} value={option}>
+//                 {option}
+//               </option>
 //             ))}
-//           </tbody>
-//         </table>
-//         <div className="navigations">
-//           <button type="submit">Save</button>
-//         </div>
+//           </select>
+//         );
+//       }
+//     }
+//   }
+
+//   function handleSubmit() {}
+
+//   return (
+//     <div className="direct-tests-modal">
+//       <form onSubmit={handleSubmit}>
+//         <thead>
+//           <tr>Tests</tr>
+//           <tr>Results</tr>
+//           <tr>Inference</tr>
+//         </thead>
+//         <tbody>
+
+//         </tbody>
 //       </form>
 //     </div>
 //   );
 // };
 
 // export default DirectTestsModal;
-
-
-
-
-
-
-
-
-
 
 
 
 
 import React, { useState } from "react";
-import "animate.css";
-import { commonTests, trimesterTests } from "../../../utils/testcategories";
-import calculateGestationalAgeAndTrimester from "../../../utils/calculate";
-import CloseIcon from "@mui/icons-material/Close";
+import '../../../styles/d-modal.css'
+import {
+  vital_signs,
+  random_blood_sugar,
+  general_exam,
+} from "../../../utils/testcategories";
+import CloseIcon from '@mui/icons-material/Close';
 
-const DirectTestsModal = ({ patient, text, closeTestModal }) => {
+const DirectTestsModal = ({ text, closeTestModal, patient }) => {
   const [results, setResults] = useState({
-    patient_id: patient.id,
+    patient_id: patient.id
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setResults({ ...results, [name]: value });
+  const handleInputChange = (test, value) => {
+    setResults(prevResults => ({
+      ...prevResults,
+      [test]: value,
+      [`${test}_inference`]: getInference(test, value, category),
+    }));
+  };
+
+  function getInference(test, value, category) {
+    let range = category[test];
+    if (Array.isArray(range)) {
+      if (category === vital_signs && typeof range[0] === "number") {
+        const numeric_value = parseFloat(value);
+        if (isNaN(numeric_value)) {
+          return " ";
+        } else if (numeric_value < range[0]) {
+          return "Low";
+        } else if (numeric_value > range[1]) {
+          return "High";
+        } else {
+          return "Normal";
+        }
+      } else if (category === random_blood_sugar) {
+        return (
+          <select
+            value={value || "normal"}
+            onChange={(e) => handleInputChange(test, e.target.value)}
+          >
+            <option value="normal">Normal</option>
+            <option value="low">Low</option>
+            <option value="high">High</option>
+          </select>
+        );
+      } else if (category === general_exam) {
+        return (
+          <select
+            value={value || range[0]}
+            onChange={(e) => handleInputChange(test, e.target.value)}
+          >
+            {range.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        );
+      }
+    }
+  }
+
+  const renderTableRows = (category) => {
+    return Object.keys(category).map((test) => (
+      <tr key={test}>
+        <td className="bg-def">{test.replace('_', ' ').toUpperCase()}</td>
+        <td>
+          <input
+            type="text"
+            value={results[test] || ''}
+            placeholder={`Enter ${test} value`}
+            onChange={(e) => handleInputChange(test, e.target.value)}
+          />
+        </td>
+        <td className="bg-df">{getInference(test, results[test], category)}</td>
+      </tr>
+    ));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted", results);
-    closeTestModal();
+    console.log("Submitted results:", results);
+    closeTestModal(); // Close the modal after submission
   };
 
-  const { trimester } = calculateGestationalAgeAndTrimester(patient.lmp);
-  const trimMap = {
-    "1st": "firstTrimester",
-    "2nd": "secondTrimester",
-    "3rd": "thirdTrimester"
-  };
-  const trim_ = trimMap[trimester] || "";
-
-  const textMap = {
-    "Vital Signs": "VitalSigns",
-    "General Exam": "GeneralExam",
-    "Abdominal Exam": "AbdominalExam",
-  };
-  const text_parameter = textMap[text] || text;
-
-  const tests = [
-    ...(commonTests[text_parameter] || []),
-    ...(trimesterTests[trim_][text_parameter] || []),
-  ];
+  let category;
+  if (text === "Vital Signs") {
+    category = vital_signs;
+  } else if (text === "RBS") {
+    category = random_blood_sugar;
+  } else if (text === "General Exam") {
+    category = general_exam;
+  }
 
   return (
-    <div className="direct-tests-modal animate__animated animate__fadeIn">
-      <div className="top-case">
-        <h2>{text}</h2>
-        <CloseIcon
-          style={{
-            fontSize: "2em",
-            borderRadius: "50%",
-          }}
-          onClick={closeTestModal}
-        />
-      </div>
+    <div className="direct-tests-modal d-modal">
+        <div className="header-section">
+        {/* <button type="button" onClick={closeTestModal}>
+          Close
+        </button> */}
+        <h3>{text}</h3>
+        <div className="close-icon" onClick={closeTestModal}>
+            <CloseIcon />
+        </div>
 
-      <form className="direct-tests-form" onSubmit={handleSubmit}>
-        <table className="tests-table">
+        </div>
+      <form onSubmit={handleSubmit}>
+        <table className="hospital-table" border="1">
           <thead>
             <tr>
-              <th>Test</th>
-              <th>Result</th>
-              <th>Comment</th>
+              <th className=" ">Tests</th>
+              <th>Results</th>
+              <th>Inference</th>
             </tr>
           </thead>
           <tbody>
-            {tests.map((test) => (
-              <tr key={test.key}>
-                <td>{test.name}</td>
-                <td>
-                  <input
-                    type="text"
-                    name={test.key}
-                    value={results[test.key] || ""}
-                    onChange={handleChange}
-                    className="d-input"
-                    placeholder={test.placeholder || ""}
-                  />
-                </td>
-                <td>
-                  {test.options.length > 0 ? (
-                    <select
-                    className="d-select"
-                      name={`${test.key}_comment`}
-                      value={results[`${test.key}_comment`] || ""}
-                      onChange={handleChange}
-                    >
-                      <option value="" className="d-option">Select</option>
-                      {test.options.map((option, idx) => (
-                        <option key={idx} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    <input
-                      type="text"
-                      name={`${test.key}_comment`}
-                      value={results[`${test.key}_comment`] || ""}
-                      onChange={handleChange}
-                      className="d-input"
-                      placeholder="Comment"
-                    />
-                  )}
-                </td>
-              </tr>
-            ))}
+            {category ? renderTableRows(category) : null}
           </tbody>
         </table>
-        <div className="navigations">
-          <button type="submit">Save</button>
+        {/* <button type="submit">Submit</button> */}
+        <div className="submissions">
+        <input type='submit' className="sub" value={"Submit"}/>
         </div>
+
+        
       </form>
     </div>
   );

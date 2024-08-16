@@ -15,7 +15,7 @@ const MaternalProfile = ({ patient }) => {
         patient.lmp,
         patient.date_of_birth
       );
-      console.log(typeof weeks);
+      // console.log(typeof weeks);
       setPatientDetails({ weeks, trimester, age });
     }
   }, [patient]);

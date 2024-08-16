@@ -1,7 +1,6 @@
 .direct-tests {
   width: 600px;
   border: 1.5px solid #dbf0f0;
-  /* border: 1.5px solid #F9C2D9; */
   border-radius: 10px;
   margin: 0.3em;
   min-height: 330px;
@@ -9,10 +8,9 @@
   padding: 0.8em;
 
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   flex-wrap: wrap;
-  position: relative;
+  /* position: relative; */
 }
 
 .tests-card {
@@ -48,23 +46,17 @@
 }
 
 .direct-tests-modal {
-  /* width: 600px; */
   width: 100%;
-  /* border: 1.5px solid #dbf0f0; */
-  border-radius: 10px;
-  /* margin: 0.3em; */
-  /* min-height: 160px;
-  max-height: 160px; */
+  /* border-radius: 10px; */
   height: 100%;
   padding: 0.5em;
-
-  /* background: red; */
   background: white;
-  background: var(--bg);
   position: absolute;
   top: 0;
-  /* background: red; */
+  left: 0;
   overflow: auto;
+
+  background: linear-gradient(to border-bottom, var());
 }
 
 .direct-tests-form {

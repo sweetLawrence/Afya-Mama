@@ -8,7 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import PaymentIcon from '@mui/icons-material/Payment';
 
 const PatientDetails = ({ patient }) => {
-  console.log(patient)
+  // console.log(patient)
   return (
     <div className="patientdetails">
       <div className="pic-name">

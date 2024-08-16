@@ -1,0 +1,68 @@
+.d-modal{
+    /* background: red; */
+}
+.d-modal select {
+    width: 60%;
+    padding: .5em;
+    background: var(--blue);
+    color: white;
+    /* border: none; */
+}
+.d-modal .header-section{
+display: flex;
+/* background: red; */
+align-items: center;
+justify-content: space-between;
+padding: .4em 5.6em;
+}
+.d-modal .header-section h3{
+    color: var(--pink);
+    font-size: 1.6em;
+}
+
+.d-modal input{
+    border: none;
+    outline: none;
+    padding: .5em;
+    width: 100%;
+    font-weight: 700;
+/* background: rgb(239, 237, 237); */
+    /* background: var(--pink); */
+}
+
+.d-modal table{
+    width: 60%;
+    margin: 4% auto;
+    background: ;
+    border: 1.3px solid var(--blue);
+ 
+}
+.d-modal table th{
+    background: var(--blue);
+    color: white;
+}
+.d-modal .bg-def{
+    /* background: var(--bg); */
+    font-weight: 700;
+}
+
+.d-modal .submissions{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.d-modal .sub{
+    width: 20%;
+    padding: .8em;
+    font-weight: 600;
+    font-size: 1.2em;
+    background: var(--blue);
+    color: white;
+    transition: all .2s;
+}
+.d-modal .sub:hover{
+    cursor: pointer;
+    scale: .99;
+    background: #3b65ce;
+}
