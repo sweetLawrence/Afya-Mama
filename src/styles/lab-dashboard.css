@@ -1,0 +1,184 @@
+.lab-dashboard {
+  overflow: hidden;
+  height: 100vh;
+}
+body{
+    overflow: hidden;
+}
+.lab-dashboard .header-section {
+  padding: 0.8em 0;
+
+  background: linear-gradient(to right, var(--blue), var(--pink));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lab-dashboard img {
+  width: 60px;
+}
+.lab-dashboard .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.lab-dashboard .labtech {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-right: 1em;
+  color: white;
+  font-size: 0.9em;
+}
+.lab-dashboard .dp-div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 0.7em;
+}
+.lab-dashboard .dp-div img {
+  width: 100%;
+}
+.lab-dashboard .date {
+  color: white;
+}
+
+.lab-dashboard .lab-title {
+
+  padding: 0.5em;
+  font-weight: 600;
+  font-size: 1.4em;
+  border-bottom: 0.2px solid black;
+}
+
+.lab-dashboard .body-section {
+
+  display: flex;
+  justify-content: space-between;
+}
+.lab-dashboard .body-section .patient-list {
+  width: 74%;
+
+}
+.lab-dashboard .body-section .patient-profile {
+  width: 25%;
+  background: #f7fafc;
+  background: var(--bg);
+  margin-right: 0.2em;
+  height: 86vh;
+}
+
+.lab-dashboard .patient-profile .dp-div {
+  width: 70px;
+  height: 70px;
+}
+.lab-dashboard .patient-profile .header {
+
+  margin: 0.4em;
+  padding: 0.4em;
+  display: flex;
+  align-items: center;
+  background: white;
+
+}
+.lab-dashboard .patient-dets {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  color: #1a202c;
+}
+.patient-dets .patientID {
+  color: #718096;
+}
+.patient-dets h4 {
+  font-size: 1.2em;
+}
+
+.lab-dashboard .contact,.lab-dashboard .personal {
+  background: white;
+  margin: 0.5em;
+  padding: .7em;
+  border-radius: 4px;
+}
+.lab-dashboard .contact .item,.lab-dashboard .personal .item{
+    margin: .1em 0 1em 0;
+}
+.lab-dashboard .contact .item-title,.lab-dashboard .item-title{
+    color:#718096;
+} 
+
+
+
+
+
+
+
+
+.lab-dashboard {
+    overflow: hidden;
+  }
+  
+  .lab-dashboard .header-section {
+    padding: 0.8em 0;
+    background: linear-gradient(to right, var(--blue), var(--pink));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .lab-dashboard .body-section {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100vh - 75px); /* Adjust height to prevent overflow */
+  }
+  
+  .lab-dashboard .patient-list {
+    width: 74%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  .lab-dashboard .upper-section {
+    flex: 0; /* Fixed height for upper section */
+  }
+  
+  .lab-dashboard .bottom-section {
+   
+    /* flex: 1; 
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    position: relative;  */
+  }
+  
+  .lab-test-input-section {
+    flex: 1; /* Allow it to take full height */
+  }
+  
+  .fullscreen-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    /* margin-bottom: 2em; */
+    color: var(--blue); /* Adjust color as needed */
+  }
+  
+  .patient-profile {
+    width: 25%;
+    background: #f7fafc;
+    margin-right: 0.2em;
+    height: 86vh;
+    overflow-y: auto; /* Enable scrolling if necessary */
+  }
+  
+  /* Additional styles as needed */
+  
