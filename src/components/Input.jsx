@@ -9,10 +9,10 @@ const InputComponent = ({ icon,placeholder, Label, id_name, name, action_type,on
   };
   return (
     <div className="input">
-      {/* <label className="label_component" htmlFor={id_name}>{Label}</label> */}
+      <label className="label_component" htmlFor={id_name}>{Label}</label>
       <div className="main">
       <input
-        className={`input_component`}
+        className={`input_component lab-input`}
         style={{
           borderColor: focused ? "#3b82f6" : "black",
         }}

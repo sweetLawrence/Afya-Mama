@@ -1,184 +1,228 @@
 .lab-dashboard {
-  overflow: hidden;
-  height: 100vh;
-}
-body{
-    overflow: hidden;
 }
 .lab-dashboard .header-section {
-  padding: 0.8em 0;
-
-  background: linear-gradient(to right, var(--blue), var(--pink));
+  /* background-color: #f0efef; */
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  height: 90px;
+  padding: 0.2em;
+  background: #f9f9f9;
+  /* background: linear-gradient(to right, var(--blue), var(--pink)); */
 }
-.lab-dashboard img {
-  width: 60px;
-}
-.lab-dashboard .logo {
+
+.lab-dashboard .header-section .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 1.1em;
+}
+
+.lab-dashboard .logo img {
+  width: 80px;
+}
+.lab-dashboard .title {
   font-weight: 600;
 }
+.lab-dashboard .title .department {
+  font-size: 1.7em;
+  color: var(--blue);
+  /* color: white; */
+}
+.lab-dashboard .title .title_name {
+  font-size: 1.1em;
+}
+
 .lab-dashboard .labtech {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-right: 1em;
-  color: white;
-  font-size: 0.9em;
+  /* background: red; */
+  width: 15%;
 }
-.lab-dashboard .dp-div {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 0.7em;
-}
-.lab-dashboard .dp-div img {
+
+.lab-dashboard .labtech img {
   width: 100%;
 }
-.lab-dashboard .date {
-  color: white;
+.lab-dashboard .labtech .rounded {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  /* background: red; */
 }
-
-.lab-dashboard .lab-title {
-
-  padding: 0.5em;
-  font-weight: 600;
-  font-size: 1.4em;
-  border-bottom: 0.2px solid black;
-}
-
-.lab-dashboard .body-section {
-
-  display: flex;
-  justify-content: space-between;
-}
-.lab-dashboard .body-section .patient-list {
-  width: 74%;
-
-}
-.lab-dashboard .body-section .patient-profile {
-  width: 25%;
-  background: #f7fafc;
-  background: var(--bg);
-  margin-right: 0.2em;
-  height: 86vh;
-}
-
-.lab-dashboard .patient-profile .dp-div {
-  width: 70px;
-  height: 70px;
-}
-.lab-dashboard .patient-profile .header {
-
-  margin: 0.4em;
-  padding: 0.4em;
+.labtech .notification_icon {
   display: flex;
   align-items: center;
-  background: white;
-
+  justify-content: center;
+  border: 1.9px solid var(--bg);
 }
-.lab-dashboard .patient-dets {
+.labtech .dp-div {
+  overflow: hidden;
+}
+
+.lab-dashboard .main_section {
+  display: flex;
+  background-color: #f6f5f7;
+}
+.lab-dashboard .main_section .right_section {
+  /* background: #f9f9f9; */
+  
+  border: 2px solid #ddf0f0;
+  border-radius: 8px;
+  margin: 0.6em 0;
+  width: 74%;
+}
+.lab-dashboard .right_section {
+}
+.lab-dashboard .right_section .top {
+  display: flex;
+  justify-content: space-between;
+  /* background: red; */
+  padding: 0.5em;
+}
+
+.lab-dashboard .forms {
+  /* background: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-dashboard .progress_bar {
+  /* background-color: red; */
+  /* height: 20px; */
+  /* margin-bottom: 1.3em; */
+}
+
+.lab_card {
+  color: white;
+  height: 90px;
+  width: 300px;
+  /* border: 2px solid white; */
+  background: #ffffff;
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
-  color: #1a202c;
+  justify-content: space-between;
+  padding: 0.9em;
+  font-weight: 600;
+
+  /* background: var(--bg); */
+  /* background: #f0efef; */
 }
-.patient-dets .patientID {
-  color: #718096;
+.lab_card .upper {
+  font-size: 1.7em;
+  color: var(--blue);
+  color: var(--pink);
 }
-.patient-dets h4 {
-  font-size: 1.2em;
+.lab_card .value {
+  font-size: 0.9em;
+  color: var(--pink);
+  color: black;
 }
 
-.lab-dashboard .contact,.lab-dashboard .personal {
-  background: white;
-  margin: 0.5em;
-  padding: .7em;
+.lab-dashboard .right_section .bottom {
+  /* background: red; */
+  margin-top: 2em;
+  padding: 0.5em;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.lab-form {
+  border: 2px solid #dbf0f0;
   border-radius: 4px;
+  width: 610px;
+  width: 500px;
+  height: 300px;
+  padding: 0 0em 0.4em 0em;
+  /* box-shadow: 2px 2px 10px rgb(170, 168, 168); */
+  overflow: auto;
+  position: relative;
 }
-.lab-dashboard .contact .item,.lab-dashboard .personal .item{
-    margin: .1em 0 1em 0;
+
+.lab-form .grp {
+  display: flex;
+  justify-content: space-between;
+  /* background: red; */
 }
-.lab-dashboard .contact .item-title,.lab-dashboard .item-title{
-    color:#718096;
-} 
+.lab-form .heading {
+  font-size: 1.5em;
+  font-weight: 600;
+  background: #f0efef;
+  /* margin-bottom: 0.8em; */
+  padding: 0.4em;
+  /* background: var(--blue); */
+  /* color: white; */
+  /* background: linear-gradient(to right, var(--pink), var(--blue)); */
+}
+.lab-input-component {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8em;
+  width: 48%;
+}
+.lab-input-component label {
+  font-weight: 600;
+}
+.lab-input-component input {
+  width: 100%;
+  /* border: 2px solid black; */
+  border: none;
+  background: var(--bg);
+  padding: 0.7em;
+  border-radius: 2px;
+  outline: none;
+  font-size: 0.9em;
+}
 
+.lab-form .form-section {
+  /* background: rebeccapurple; */
+  margin: 0 10px;
+}
 
+.lab-dashboard .navigations {
+  display: flex;
+  flex-direction: column;
+  background: var(--blue);
+  background: white;
+  /* padding: 0 0.5em; */
+  /* justify-content: space-around; */
+  width: 40%;
+  /* margin-right: 8em; */
+  border-radius: 5px;
+  border: 2px solid #dbf0f0;
+  /* box-shadow: 2px 2px 10px rgb(106, 105, 105); */
+}
+.lab-dashboard .nav-item {
+  /* background: rebeccapurple; */
+  /* color: white; */
+  padding: 0.9em 0.5em;
+  margin-bottom: .5em;
+  cursor: pointer;
+  font-weight: 600;
+}
+.lab-dashboard .nav-item:hover{
+  /* background: #A4B8E8; */
+}
 
+.lab-dashboard .nav-item.active {
+  background: var(--blue);
+  color: white;
+}
 
-
-
-
-
-.lab-dashboard {
-    overflow: hidden;
-  }
-  
-  .lab-dashboard .header-section {
-    padding: 0.8em 0;
-    background: linear-gradient(to right, var(--blue), var(--pink));
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .lab-dashboard .body-section {
-    display: flex;
-    justify-content: space-between;
-    height: calc(100vh - 75px); /* Adjust height to prevent overflow */
-  }
-  
-  .lab-dashboard .patient-list {
-    width: 74%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Prevent overflow */
-  }
-  
-  .lab-dashboard .upper-section {
-    flex: 0; /* Fixed height for upper section */
-  }
-  
-  .lab-dashboard .bottom-section {
-   
-    /* flex: 1; 
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; 
-    position: relative;  */
-  }
-  
-  .lab-test-input-section {
-    flex: 1; /* Allow it to take full height */
-  }
-  
-  .fullscreen-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    /* margin-bottom: 2em; */
-    color: var(--blue); /* Adjust color as needed */
-  }
-  
-  .patient-profile {
-    width: 25%;
-    background: #f7fafc;
-    margin-right: 0.2em;
-    height: 86vh;
-    overflow-y: auto; /* Enable scrolling if necessary */
-  }
-  
-  /* Additional styles as needed */
-  
+.lab-form .submit{
+  /* background: red; */
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.lab-form .save{
+  padding: .5em;
+  width: 200px;
+  text-align: center;
+  background: var(--pink);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+}
