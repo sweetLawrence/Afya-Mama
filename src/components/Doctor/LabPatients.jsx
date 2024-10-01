@@ -5,7 +5,7 @@ import axiosInstance from '../../utils/axios.jsx'
 import LabPatientCard from "./LabPatientCard.jsx";
 
 
-const LabPatients = ({ onSelectPatient }) => {
+const LabPatients = ({onSelectPatient }) => {
   const [patients, setPatients] = useState([]);
   const [selectedPatient, setSelectedPatient] = useState(null);
 

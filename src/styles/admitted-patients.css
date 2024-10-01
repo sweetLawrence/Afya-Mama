@@ -11,12 +11,14 @@
     max-height: 320px; */
     height: 79.5vh;
     padding: 0.6em .6em;
+    overflow: hidden;
 }
 
 .doctor-admitted-patients h3{
     /* background: red; */
     padding: .5em;
     color: var(--pink);
+
 }
 .patients-list {
     display: flex;
@@ -24,6 +26,10 @@
     gap: 1em;
     overflow-y: auto;
     padding-top: .5em;
+    height: 120%;
+    /* background: red; */
+    /* overflow-y:scroll ; */
+    z-index: 1000;
 }
 
 .patient-card {

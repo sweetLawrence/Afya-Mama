@@ -13,12 +13,11 @@ import calculateGestationalAgeAndTrimester from "../../utils/calculate";
 import LabForm3 from "../../components/Lab/LabForm3";
 import Spinner from "../../components/Spinner";
 import SearchInput from "../../components/Doctor/SearchInput";
+import SearchIcon from '@mui/icons-material/Search';
 
 const LabDashboard = () => {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [selectedForm, setSelectedForm] = useState(1);
-
-  const [searchQuery, setSearchQuery] = useState('');
 
   const initialFormData = {
     bloodGroup: "",
@@ -88,7 +87,7 @@ const LabDashboard = () => {
           </div>
         </div>
         <div className="lab_search-field">
-          <SearchInput />
+          
         </div>
         <div className="labtech">
           {/* <div className="rounded color_round"></div> */}
@@ -97,6 +96,7 @@ const LabDashboard = () => {
               style={{ color: "#2b50aa", fontSize: "1.5em" }}
               // #2b50aa
             />
+            <div className="notif_num">1</div>
           </div>
           <div className="rounded dp-div">
             <img src={Person} alt="The Lab Technician's Name" />
