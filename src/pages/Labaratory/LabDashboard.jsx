@@ -11,10 +11,38 @@ import LabForm2 from "../../components/Lab/LabForm2";
 import LabPatients from "../../components/Doctor/LabPatients";
 import calculateGestationalAgeAndTrimester from "../../utils/calculate";
 import LabForm3 from "../../components/Lab/LabForm3";
+import Spinner from "../../components/Spinner";
+import SearchInput from "../../components/Doctor/SearchInput";
 
 const LabDashboard = () => {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [selectedForm, setSelectedForm] = useState(1);
+
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const initialFormData = {
+    bloodGroup: "",
+    hb: "",
+    hiv: "",
+    vdrl: "",
+    rbs: "",
+
+    pH: "",
+    specificGravity: "",
+    glucose: "",
+    ketones: "",
+    nitrites: "",
+    leukocyteEsterase: "",
+
+    fhr: "",
+    fh: "",
+    cefw: "",
+  };
+  const [formData, setFormData] = useState(initialFormData);
+
+  // const [formData, setFormData] = useState({
+
+  // });
 
   const handleSelectPatient = (patient) => {
     if (patient.lmp && patient.date_of_birth) {
@@ -23,6 +51,7 @@ const LabDashboard = () => {
         patient.dob
       );
       setSelectedPatient({ ...patient, trimester: result.trimester });
+      setFormData(initialFormData);
     } else {
       setSelectedPatient(patient);
     }
@@ -30,6 +59,22 @@ const LabDashboard = () => {
 
   const handleFormChange = (formNumber) => {
     setSelectedForm(formNumber);
+  };
+
+  function addOne() {
+    setSelectedForm(selectedForm + 1);
+  }
+
+  function subOne() {
+    setSelectedForm(selectedForm - 1);
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   return (
@@ -42,7 +87,9 @@ const LabDashboard = () => {
             <div className="department">Lab MIS</div>
           </div>
         </div>
-
+        <div className="lab_search-field">
+          <SearchInput />
+        </div>
         <div className="labtech">
           {/* <div className="rounded color_round"></div> */}
           <div className="rounded notification_icon">
@@ -63,9 +110,6 @@ const LabDashboard = () => {
         </div>
         <div className="right_section">
           <div className="top">
-            {/* <LabCard upper={"Trimester"} value={"3rd"} />
-            <LabCard upper={"EDD"} value={"01/08/2024"} />
-            <LabCard upper={"HIV Status"} value={"Non-Reactive"} /> */}
             {selectedPatient ? (
               <>
                 <LabCard
@@ -79,21 +123,12 @@ const LabDashboard = () => {
                 />
               </>
             ) : (
-              <div>Select a patient to view details</div>
+              <div className="lab_warning">
+                <Spinner />
+              </div>
             )}
           </div>
           <div className="bottom">
-            {/* <div className="progress_bar"></div> */}
-            {/* <div className="navigations">
-              <div className="nav-item active">1. Blood Tests </div>
-              <div className="nav-item">2. Urinalysis</div>
-              <div className="nav-item">3. Infectious Disease Screening</div>
-              <div className="nav-item">4. Fetal Health Monitoring</div> 
-            </div>
-            <div className="forms">
-              <LabForm1 />
-            </div> */}
-
             <div className="navigations">
               <div
                 className={`nav-item ${selectedForm === 1 ? "active" : ""}`}
@@ -122,10 +157,34 @@ const LabDashboard = () => {
             </div>
 
             <div className="forms">
-              {selectedForm === 1 && <LabForm1 />}
-              {selectedForm === 2 && <LabForm2 />}
-              {selectedForm === 3 && <LabForm3 selectedPatient={selectedPatient} />}
-              {/* {selectedForm === 4 && <LabForm4 />} */}
+              {selectedForm === 1 && (
+                <LabForm1
+                  selectedPatient={selectedPatient}
+                  addOne={addOne}
+                  subOne={subOne}
+                  onInputChange={handleInputChange}
+                  formData={formData}
+                />
+              )}
+              {selectedForm === 2 && (
+                <LabForm2
+                  selectedPatient={selectedPatient}
+                  addOne={addOne}
+                  onInputChange={handleInputChange}
+                  subOne={subOne}
+                  formData={formData}
+                />
+              )}
+              {selectedForm === 3 && (
+                <LabForm3
+                  selectedPatient={selectedPatient}
+                  addOne={addOne}
+                  subOne={subOne}
+                  onInputChange={handleInputChange}
+                  formData={formData}
+                />
+              )}
+              {selectedForm === 4 && <LabForm1 />}
             </div>
           </div>
         </div>

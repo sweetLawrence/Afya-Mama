@@ -4,10 +4,15 @@
   /* background-color: #f0efef; */
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 90px;
   padding: 0.2em;
   background: #f9f9f9;
+  /* background: var(--bg); */
   /* background: linear-gradient(to right, var(--blue), var(--pink)); */
+}
+.lab-dashboard .header-section .lab_search-field{
+
 }
 
 .lab-dashboard .header-section .logo {
@@ -29,6 +34,7 @@
 }
 .lab-dashboard .title .title_name {
   font-size: 1.1em;
+  /* color: white; */
 }
 
 .lab-dashboard .labtech {
@@ -64,7 +70,7 @@
 }
 .lab-dashboard .main_section .right_section {
   /* background: #f9f9f9; */
-  
+
   border: 2px solid #ddf0f0;
   border-radius: 8px;
   margin: 0.6em 0;
@@ -96,7 +102,7 @@
   color: white;
   height: 90px;
   width: 300px;
-  /* border: 2px solid white; */
+  border: 2px solid #e9ebed;
   background: #ffffff;
   border-radius: 5px;
   display: flex;
@@ -165,7 +171,7 @@
 .lab-input-component label {
   font-weight: 600;
 }
-.lab-input-component input {
+.lab-input-component input,.lab-input-component select  {
   width: 100%;
   /* border: 2px solid black; */
   border: none;
@@ -198,11 +204,11 @@
   /* background: rebeccapurple; */
   /* color: white; */
   padding: 0.9em 0.5em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   cursor: pointer;
   font-weight: 600;
 }
-.lab-dashboard .nav-item:hover{
+.lab-dashboard .nav-item:hover {
   /* background: #A4B8E8; */
 }
 
@@ -211,18 +217,56 @@
   color: white;
 }
 
-.lab-form .submit{
+.lab-form .submit {
   /* background: red; */
- display: flex;
- align-items: center;
- justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 4%;
+  left: 30%;
+  cursor: pointer;
 }
-.lab-form .save{
-  padding: .5em;
+
+.lab-form .save {
+  padding: 0.5em;
   width: 200px;
   text-align: center;
   background: var(--pink);
   color: white;
   font-weight: 600;
   border-radius: 5px;
+  margin: 0 1em;
+  transition: all .1s;
+}
+.lab-form .save:active {
+  scale: 1.04;
+}
+.lab-form .arrow {
+  width: 40px;
+  height: 40px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  padding: 0.4em;
+  transition: all 0.5s;
+}
+.lab-form .arrow:active {
+  scale: 0.8;
+}
+.lab-form .left_arrow:hover {
+  /* transform: translateX(-2px); */
+}
+.lab-form .right_arrow:hover {
+  /* transform: translateX(2px); */
+}
+.lab_warning {
+  background: rgb(0, 0, 0, 0.5);
+  background: var(--bg);
+  width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../../styles/admitted-patients.css";
 import PatientCard from "./PatientCard";
 import axiosInstance from '../../utils/axios.jsx'
+import LabPatientCard from "./LabPatientCard.jsx";
 
 
 const LabPatients = ({ onSelectPatient }) => {
@@ -34,16 +35,25 @@ const LabPatients = ({ onSelectPatient }) => {
     onSelectPatient(patient);
   };
 
+  const handleDischargePatient = (patientId) => {
+    setPatients(patients.filter((patient) => patient.id !== patientId));
+  
+    if (selectedPatient && selectedPatient.id === patientId) {
+      setSelectedPatient(null);
+    }
+  };
+  
   return (
     <div className="doctor-admitted-patients">
       <h3>Admitted Patients</h3>
       <div className="patients-list">
         {patients.map((patient) => (
-          <PatientCard
+          <LabPatientCard
             key={patient.id}
             patient={patient}
             onSelect={() => handleSelectPatient(patient)}
             isSelected={selectedPatient && selectedPatient.id === patient.id}
+            onDischarge={handleDischargePatient}
           />
         ))}
       </div>

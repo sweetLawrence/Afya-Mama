@@ -25,19 +25,25 @@
 
 // export default LabForm3;
 
-
-
 import React, { useState } from "react";
 import LabInputComponent from "../../pages/Labaratory/LabInputComponent";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const LabForm3 = ({ selectedPatient }) => {
-  const [formData, setFormData] = useState({
-    fhr: "",
-    fh: "",
-    cefw: "", // Added CEFW to state
-  });
+const LabForm3 = ({
+  selectedPatient,
+  subOne,
+  addOne,
+  formData,
+  onInputChange,
+}) => {
+//   const [formData, setFormData] = useState({
+//     fhr: "",
+//     fh: "",
+//     cefw: "", 
+//   });
 
-  // Handle changes in the input fields
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -46,14 +52,11 @@ const LabForm3 = ({ selectedPatient }) => {
     }));
   };
 
-  // Handle form submission
   const handleSave = () => {
-    // Simulate posting to DB by logging the data
     console.log("Saving data:", {
-      patientId: selectedPatient?.id, // Assuming you have an id field for the patient
+      patientId: selectedPatient?.id,
       ...formData,
     });
-    // Here, you could make a POST request to your API to save the data
   };
 
   return (
@@ -65,13 +68,14 @@ const LabForm3 = ({ selectedPatient }) => {
             label={"FHR"}
             name="fhr"
             value={formData.fhr}
-            onChange={handleInputChange}
+            onChange={onInputChange}
+
           />
           <LabInputComponent
             label={"FH"}
             name="fh"
             value={formData.fh}
-            onChange={handleInputChange}
+            onChange={onInputChange}
           />
         </div>
         {/* Conditionally render the CEFW input if the trimester is 3rd */}
@@ -81,14 +85,20 @@ const LabForm3 = ({ selectedPatient }) => {
               label={"CEFW"}
               name="cefw"
               value={formData.cefw}
-              onChange={handleInputChange}
+              onChange={onInputChange}
             />
           </div>
         )}
       </div>
       <div className="submit">
+        <div className="arrow left_arrow" onClick={subOne}>
+          <ArrowBackIcon style={{ color: "white" }} />
+        </div>
         <div className="save" onClick={handleSave}>
           Save
+        </div>
+        <div className="arrow right_arrow" onClick={addOne}>
+          <ArrowForwardIcon style={{ color: "white" }} />
         </div>
       </div>
     </div>
