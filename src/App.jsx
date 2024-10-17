@@ -8,6 +8,7 @@ import ResetPassword from "./components/ResetPassword";
 import Dashboard from "./pages/Reception/Dashboard";
 import DoctorDashboard from "./pages/Doctors/DoctorDashboard";
 import LabDashboard from "./pages/Labaratory/LabDashboard";
+import BirthDashboard from "./pages/Birth/BirthDashboard";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/doctor_dashboard" element={<DoctorDashboard />} />
           <Route exact path="/lab_dashboard" element={<LabDashboard />} />
+          <Route exact path="/birth" element={<BirthDashboard />} />
         </Routes>
       </Router>
     </div>

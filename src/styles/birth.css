@@ -1,0 +1,278 @@
+.birth .header-section {
+  /* background-color: #f0efef; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 0.2em;
+  background: #f9f9f9;
+  /* background: var(--bg); */
+  /* background: linear-gradient(to right, var(--blue), var(--pink)); */
+}
+.birth .header-section .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.birth .logo img {
+  width: 80px;
+}
+
+.birth .title {
+  font-weight: 600;
+}
+.birth .title .department {
+  font-size: 1.7em;
+  color: var(--blue);
+  /* color: white; */
+}
+.birth .title .title_name {
+  font-size: 1.1em;
+  /* color: white; */
+}
+
+.birth .labtech {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /* background: red; */
+  width: 15%;
+}
+
+.birth .labtech img {
+  width: 100%;
+}
+.birth .labtech .rounded {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  /* background: red; */
+}
+.labtech .notification_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.9px solid var(--bg);
+  position: relative;
+}
+.notif_num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: red;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  color: white;
+  font-weight: 600;
+  display: grid;
+  place-content: center;
+  font-size: 0.9em;
+  padding: 0.4em;
+}
+.labtech .dp-div {
+  overflow: hidden;
+}
+
+.birth .main_section {
+  display: flex;
+  background-color: #f6f5f7;
+}
+
+.birth .main_section .right_section {
+  background: #f9f9f9;
+
+  border: 2px solid #ddf0f0;
+  border-radius: 8px;
+  margin: 0.6em 0;
+  width: 74%;
+}
+
+.birth .right_section .top {
+  display: flex;
+  justify-content: space-between;
+  /* background: red; */
+  padding: 0.5em;
+}
+.birth .forms {
+  /* background: red; */
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: rebeccapurple; */
+}
+.birth .right_section .bottom {
+  /* background: red; */
+  margin-top: 2em;
+  padding: 0.5em;
+  display: flex;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.birth .navigations {
+  display: flex;
+  flex-direction: column;
+  background: var(--blue);
+  background: white;
+  /* padding: 0 0.5em; */
+  /* justify-content: space-around; */
+  width: 40%;
+  /* background: green; */
+  /* margin-right: 8em; */
+  border-radius: 5px;
+  border: 2px solid #dbf0f0;
+  height: 465px;
+  margin-top: -5.1%;
+  /* box-shadow: 2px 2px 10px rgb(106, 105, 105); */
+}
+
+.birth .navigations .nav-item {
+  /* background: rebeccapurple; */
+  /* color: white; */
+  padding: 0.9em 0.5em;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  font-weight: 600;
+  width: 95%;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 0.2em;
+}
+.birth .nav-item.active {
+  background: var(--blue);
+  color: white;
+}
+
+.birth-form {
+  border: 2px solid #dbf0f0;
+  border-radius: 4px;
+  /* width: 610px; */
+  width: 500px;
+  /* width: 100%; */
+  height: 350px;
+  padding: 0 0em 0.4em 0em;
+  /* box-shadow: 2px 2px 10px rgb(170, 168, 168); */
+  overflow: auto;
+  position: relative;
+  margin-top: 11%;
+}
+.birth-form .grp {
+  /* display: flex; */
+
+  /* justify-content: space-between; */
+  /* background: red; */
+  width: 48%;
+  /* margin-bottom: 2em; */
+}
+.birth-form .heading {
+  font-size: 1.5em;
+  font-weight: 600;
+  background: #f0efef;
+  /* margin-bottom: 0.8em; */
+  padding: 0.4em;
+  /* background: var(--blue); */
+  /* color: white; */
+  /* background: linear-gradient(to right, var(--pink), var(--blue)); */
+}
+
+.birth-form .form-section {
+  display: flex;
+  flex-wrap: wrap; 
+  margin: 0 10px;
+  justify-content: space-between;
+
+}
+
+.birth-form .submit {
+  /* background: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 2%;
+  left: 20%;
+  cursor: pointer;
+}
+
+.birth-form .save {
+  padding: 0.5em;
+  width: 200px;
+  text-align: center;
+  background: var(--pink);
+  color: white;
+  font-weight: 600;
+  border-radius: 5px;
+  margin: 0 1em;
+  transition: all 0.1s;
+}
+.birth-form .save:active {
+  scale: 1.04;
+}
+.birth-form .arrow {
+  width: 40px;
+  height: 40px;
+  background: var(--blue);
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+  padding: 0.4em;
+  transition: all 0.5s;
+}
+.birth-form .arrow:active {
+  scale: 0.8;
+}
+
+.birth-input-component {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.8em;
+  width: 100%;
+  background: white;
+}
+.birth-input-component label {
+  font-weight: 600;
+}
+.birth-input-component input,
+.birth-input-component select {
+  width: 100%;
+  /* border: 2px solid black; */
+  border: none;
+  background: var(--bg);
+  padding: 0.7em;
+  border-radius: 2px;
+  outline: none;
+  font-size: 0.9em;
+}
+
+
+.birth_card {
+    color: white;
+    height: 90px;
+    width: 500px;
+    border: 2px solid #e9ebed;
+    background: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: 0.9em;
+    font-weight: 600;
+
+    position: absolute;
+    right: 3%;
+  
+  }
+  .birth_card .upper {
+    font-size: 1.7em;
+    color: var(--blue);
+    color: var(--pink);
+  }
+  .birth_card .value {
+    font-size: 0.9em;
+    color: var(--pink);
+    color: black;
+  }
