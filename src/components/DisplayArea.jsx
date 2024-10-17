@@ -10,7 +10,7 @@ const DisplayArea = ({ selectedComponent }) => {
 
   const Items = {
     intake: <Intake />,
-    history: <History />
+    // history: <History />
   }
 
   return <div className="display-area">

@@ -7,7 +7,7 @@ export const NavIcons = [PersonAddIcon,PersonAddIcon,PersonAddIcon,PersonAddIcon
 
 export const Navdata = [
     { name: 'Intake', component: Intake },
-    { name: 'History', component: History },
+    // { name: 'History', component: History },
     // { name: 'Settings', component: Vitals },
   ];
   
