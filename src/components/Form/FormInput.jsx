@@ -26,7 +26,7 @@ const FormInput = ({
         className={className}
         id={id}
         placeholder={placeholder}
-        // required
+        required
         disabled={disabled}
         min={min}
         max={max}

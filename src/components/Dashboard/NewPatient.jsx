@@ -35,11 +35,25 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
     weight: "",
   });
 
+  const validateEmail = (email) => {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple regex for email validation
+    return emailPattern.test(email);
+  };
+
   function handleSubmit(e) {
     e.preventDefault();
 
+    if (!validateEmail(formValues.email)) {
+      toast.error("Please enter a valid email address."); // Show error message
+      return; // Prevent form submission
+    }
+
+    const hospitalId = localStorage.getItem("hospitalId");
+    const dataToSubmit = { ...formValues, hospitalId };
+
     axiosInstance
-      .post("/api/collections/patients/records", formValues)
+      // .post("/api/collections/patients/records", formValues)
+      .post("http://localhost:3000/patients/register", dataToSubmit)
       .then((response) => {
         // activateSonner();
         toast.success("Patient Registered successfully");
@@ -137,14 +151,6 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
             </GroupedInputs>
 
             <GroupedInputs title="Sex">
-              {/* <SelectComponent
-                name="gender"
-                id="gender"
-                label="Sex"
-                options={genderOptions}
-                onChange={handleInputChange}
-                //  value={formValues.gender}
-              /> */}
 
               <FormInput name="sex" label="" id="sex" value="Female" disabled />
             </GroupedInputs>

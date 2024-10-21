@@ -11,16 +11,14 @@ import generateOTP from "../utils/generateOTP";
 const Login = () => {
   const navigation = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { loginData, handleInputChange, handleSubmit, formRef } =
-    useLoginForm();
+  const { loginData, handleInputChange, handleSubmit, formRef } = useLoginForm();
 
   function handlePasswordReset() {
     alert(generateOTP());
     const search_parameters = new URLSearchParams(searchParams);
-    search_parameters.set("q","intake");
+    search_parameters.set("q", "intake");
     navigation("/reset-password");
   }
-
 
   return (
     <div className="login">
@@ -35,26 +33,26 @@ const Login = () => {
         <form ref={formRef} onSubmit={handleSubmit}>
           <h2>Welcome to Afya Mama</h2>
           <InputComponent
-            Label="Login"
-            placeholder="Login"
+            Label=" "
+            placeholder="Enter Medical License Number"
             icon={<PersonIcon style={{ fontSize: "2em", color: "#3b82f6" }} />}
-            value={loginData.username}
+            value={loginData.medicalLicenseNumber}
             onChange={handleInputChange}
-            name="username"
+            name="medicalLicenseNumber"
           />
           <InputComponent
             Label=""
-            placeholder="Enter password"
-            action_type="password"
+            placeholder="Enter Hospital ID"
+            action_type="text"
             icon={<LockIcon style={{ fontSize: "2em", color: "#3b82f6" }} />}
-            value={loginData.password}
+            value={loginData.hospitalId}
             onChange={handleInputChange}
-            name="password"
+            name="hospitalId"
           />
           <button type="submit">Submit</button>
-          <a className="forgot-password" onClick={handlePasswordReset}>
+          {/* <a className="forgot-password" onClick={handlePasswordReset}>
             Forgot password
-          </a>
+          </a> */}
         </form>
       </div>
     </div>

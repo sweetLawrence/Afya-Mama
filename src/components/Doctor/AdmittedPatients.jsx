@@ -10,14 +10,17 @@ const AdmittedPatients = ({ onSelectPatient }) => {
 
   useEffect(() => {
     const fetchPatients = async () => {
+      const hospitalId = localStorage.getItem("hospitalId");
       try {
         const response = await axiosInstance.get(
-          "/api/collections/patients/records"
+          // "/api/collections/patients/records"
+          `/patients/admitted-patients/${hospitalId}`
         );
-        setPatients(response.data.items);
+        // setPatients(response.data.items);
+        setPatients(response.data);
 
-        if (response.data.items.length > 0) {
-          const firstPatient = response.data.items[0];
+        if (response.data.length > 0) {
+          const firstPatient = response.data[0];
           setSelectedPatient(firstPatient);
           onSelectPatient(firstPatient);
         }

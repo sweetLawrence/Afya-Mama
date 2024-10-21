@@ -263,7 +263,28 @@ button {
   0% {
     transform: rotate(0deg);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
+  }
+}
+
+.found-patient-admit {
+  position: absolute;
+
+  background: white;
+  box-shadow: 2px 2px 15px rgb(183, 182, 182);
+  margin-left: 1%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 59%;
+  padding:.5em 0 ;
+
+  & .p-name{
+    font-size: 1.3em;
+    margin: 0 1.2em;
+    font-weight: 700;
+    color: var(--blue);
   }
 }
