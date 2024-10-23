@@ -27,7 +27,7 @@
 // Function to determine baseURL
 const getBaseURL = () => {
   const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  return isLocalhost ? 'http://localhost:3000' : 'https://44c1-102-215-33-94.ngrok-free.app';
+  return isLocalhost ? 'http://localhost:3000' : 'https://e8e3-102-212-236-177.ngrok-free.app/';
 };
 
 // Function to get token from localStorage

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import calculateGestationalAgeAndTrimester from "../../utils/calculate";
 
@@ -13,6 +13,7 @@ const PatientCard = ({
   // console.log(patient);
 
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   // function fetchPatientHistory() {
   //   // Open a new tab with patient ID as a query parameter
@@ -57,7 +58,12 @@ const PatientCard = ({
           }}
         >
           {/* Send to Lab */}
-          {patient.status === "in_lab" ? "Lab Stage" : "Send to Lab"}
+          {/* {patient.status === "in_lab" ? "Lab Stage" : "Send to Lab"} */}
+          {loading ? (
+            <Spinner /> // Render spinner when loading
+          ) : (
+            patient.status === "in_lab" ? "Lab Stage" : "Send to Lab"
+          )}
         </div>
       </div>
     </div>
