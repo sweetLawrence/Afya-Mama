@@ -120,6 +120,7 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios"; // Make sure to import axios
+import axiosInstance from "../utils/axios";
 
 const useLoginForm = () => {
   const [loginData, setLoginData] = useState({
@@ -134,7 +135,7 @@ const useLoginForm = () => {
     e.preventDefault();
     try {
       // Send the login data to the backend
-      const response = await axios.post("http://localhost:3000/login", {
+      const response = await axiosInstance.post("/login", {
         medicalLicenseNumber: loginData.medicalLicenseNumber,
         hospitalId: loginData.hospitalId,
       });
