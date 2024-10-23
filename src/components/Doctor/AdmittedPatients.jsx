@@ -402,6 +402,7 @@ const AdmittedPatients = ({ onSelectPatient }) => {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [isFetching, setIsFetching] = useState(false); // Track fetching state
   const [labAction, setLabAction] = useState(true);
+  const [loading,setLoading] = useState(false);
 
   // Function to fetch patients
   const fetchPatients = async () => {
@@ -461,7 +462,10 @@ const AdmittedPatients = ({ onSelectPatient }) => {
   // Function to send patient to lab
   const handleSendToLab = async (patientId) => {
     try {
-      await axiosInstance.patch(`/patients/send-to-lab`, { patientId });
+      const res = await axiosInstance.patch(`/patients/send-to-lab`, { patientId });
+      if(res.data?.message){
+        setLoading(false);
+      }
       setLabAction(!labAction); // Toggle action to trigger re-fetch
     } catch (error) {
       console.error("Error sending patient to lab:", error);
@@ -490,6 +494,7 @@ const AdmittedPatients = ({ onSelectPatient }) => {
             patient={patient}
             onDischarge={handleDischarge}
             onSendToLab={handleSendToLab}
+            loading={loading}
             onSelect={() => handleSelectPatient(patient)} // Use the new handleSelectPatient function
             isSelected={memoizedSelectedPatient?.id === patient.id}
           />

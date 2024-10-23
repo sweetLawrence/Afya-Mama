@@ -9,11 +9,12 @@ const PatientCard = ({
   onSendToLab,
   isSelected,
   labStatus,
+  loading
 }) => {
   // console.log(patient);
 
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+
 
   // function fetchPatientHistory() {
   //   // Open a new tab with patient ID as a query parameter
