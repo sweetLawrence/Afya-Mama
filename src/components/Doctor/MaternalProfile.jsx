@@ -3,6 +3,7 @@ import "../../styles/maternalprofile.css";
 import calculateGestationalAgeAndTrimester from "../../utils/calculate";
 
 const MaternalProfile = ({ patient }) => {
+
   const [patientDetails, setPatientDetails] = useState({
     age: "",
     trimester: "",
@@ -15,7 +16,7 @@ const MaternalProfile = ({ patient }) => {
         patient.lmp,
         patient.date_of_birth
       );
-      console.log(typeof weeks);
+      // console.log(typeof weeks);
       setPatientDetails({ weeks, trimester, age });
     }
   }, [patient]);

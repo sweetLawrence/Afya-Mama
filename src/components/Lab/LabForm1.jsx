@@ -3,6 +3,9 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState } from "react";
 import LabSelectComponent from "../../pages/Labaratory/LabSelectComponent";
+import { Toaster, toast } from "sonner";
+import axiosInstance from "../../utils/axios";
+import calculateGestationalAgeAndTrimester from "../../utils/calculate";
 
 const LabForm1 = ({
   selectedPatient,
@@ -10,14 +13,16 @@ const LabForm1 = ({
   subOne,
   formData,
   onInputChange,
+  setFormData,
+  initialFormData,
 }) => {
-  // const [formData, setFormData] = useState({
-  //   bloodGroup: "",
-  //   hb: "",
-  //   hiv: "",
-  //   vdrl: "",
-  //   rbs: "",
-  // });
+
+  // console.log("F1XXX",selectedPatient?.trimester)
+
+  const { trimester } = calculateGestationalAgeAndTrimester(
+    selectedPatient?.lmp
+  );
+  const currentDate = new Date().toISOString().split("T")[0];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -27,11 +32,31 @@ const LabForm1 = ({
     }));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     console.log("Saving data:", {
       patientId: selectedPatient?.id,
       ...formData,
     });
+
+    try {
+      const response = await axiosInstance.patch("/tests/lab-tests", {
+        patientId: selectedPatient?.id,
+        doctorId: localStorage.getItem("medicalLicenseNumber"),
+        trimester:selectedPatient?.trimester, 
+        testCategory: "Blood Tests",
+        testDate: currentDate,
+        ...formData,
+      });
+
+      console.log(response);
+      toast.success(response.data.message);
+      setFormData(initialFormData);
+      addOne();
+    } catch (error) {
+      // console.log(response.data)
+      toast.error("Failure to save lab results");
+      // toast.error(error)
+    }
   };
 
   return (

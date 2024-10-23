@@ -29,20 +29,22 @@ import React, { useState } from "react";
 import LabInputComponent from "../../pages/Labaratory/LabInputComponent";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Toaster, toast } from "sonner";
+import axiosInstance from "../../utils/axios";
+import calculateGestationalAgeAndTrimester from "../../utils/calculate";
 
 const LabForm3 = ({
   selectedPatient,
   subOne,
-  addOne,
+  // addOne,
   formData,
   onInputChange,
+  setFormData,
+  initialFormData
 }) => {
-//   const [formData, setFormData] = useState({
-//     fhr: "",
-//     fh: "",
-//     cefw: "", 
-//   });
 
+  const { trimester } = calculateGestationalAgeAndTrimester(selectedPatient?.lmp);
+  const currentDate = new Date().toISOString().split("T")[0];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,11 +54,36 @@ const LabForm3 = ({
     }));
   };
 
-  const handleSave = () => {
+  const handleSave = async() => {
     console.log("Saving data:", {
       patientId: selectedPatient?.id,
       ...formData,
     });
+
+
+    try {
+
+      const response = await axiosInstance.patch("/tests/lab-tests", {
+        patientId: selectedPatient?.id,
+        doctorId:localStorage.getItem("medicalLicenseNumber"),
+        trimester:selectedPatient?.trimester,  
+        testCategory:"Fetal Monitoring",
+        testDate: currentDate,
+        ...formData,
+      });
+
+      console.log(response)
+      toast.success(response.data.message)
+
+      setFormData(initialFormData);
+      // addOne();
+    } catch (error) {
+      // console.log(error)
+      // toast.error(response.data.message)
+      toast.error("Failure to save lab results")
+    }
+
+
   };
 
   return (
@@ -97,7 +124,7 @@ const LabForm3 = ({
         <div className="save" onClick={handleSave}>
           Save
         </div>
-        <div className="arrow right_arrow" onClick={addOne}>
+        <div className="arrow right_arrow" onClick={subOne}>
           <ArrowForwardIcon style={{ color: "white" }} />
         </div>
       </div>

@@ -72,7 +72,7 @@ const Intake = () => {
           `/patients/admitted-patients/${hospitalId}`
         );
         setPatients(response.data);
-        console.log("Responzzz", response.data)
+        // console.log("Responzzz", response.data)
       } catch (error) {
         console.error("Error fetching patients:", error);
         toast.error("Failed to fetch patients");
@@ -127,7 +127,7 @@ const Intake = () => {
 //     patient.nationalId.toLowerCase().includes(filter.toLowerCase())
 // );
 
-  console.log("PATIENTZZZZZ", admittedPatients);
+  // console.log("PATIENTZZZZZ", admittedPatients);
 
   const handleAdmission = async () => {
     const patientId = localStorage.getItem("patientId");
@@ -137,10 +137,19 @@ const Intake = () => {
       return;
     }
 
+    const formatDateToYYYYMMDD = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+      const day = String(date.getDate()).padStart(2, '0');
+      return `${year}-${month}-${day}`;
+  };
+
+  const admissionDate = formatDateToYYYYMMDD(new Date());
+
     try {
       const response = await axiosInstance.post("/patients/admit-patient", {
         patientId: patientId,
-        admissionDate: String(new Date()),
+        admissionDate: String(admissionDate),
         receptionStaffId: localStorage.getItem("medicalLicenseNumber"),
         hospitalId: localStorage.getItem("hospitalId"),
       });
@@ -150,6 +159,9 @@ const Intake = () => {
         setPatientFound(false);
         setFetchAction(!fetchAction);
       }
+
+      console.log("ADMISSION RESPONSE",response)
+     
     } catch (error) {
       console.error("Error admitting patient:", error);
       // toast.error("Failed to admit patient");

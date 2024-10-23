@@ -148,12 +148,12 @@ const LabDashboard = () => {
               >
                 3. Fetal Health Monitoring
               </div>
-              <div
+              {/* <div
                 className={`nav-item ${selectedForm === 4 ? "active" : ""}`}
                 onClick={() => handleFormChange(4)}
               >
                 4. Infectious Disease Screening
-              </div>
+              </div> */}
             </div>
 
             <div className="forms">
@@ -164,6 +164,8 @@ const LabDashboard = () => {
                   subOne={subOne}
                   onInputChange={handleInputChange}
                   formData={formData}
+                  setFormData={setFormData}
+                  initialFormData={initialFormData}
                 />
               )}
               {selectedForm === 2 && (
@@ -173,6 +175,8 @@ const LabDashboard = () => {
                   onInputChange={handleInputChange}
                   subOne={subOne}
                   formData={formData}
+                  setFormData={setFormData}
+                  initialFormData={initialFormData}
                 />
               )}
               {selectedForm === 3 && (
@@ -182,9 +186,11 @@ const LabDashboard = () => {
                   subOne={subOne}
                   onInputChange={handleInputChange}
                   formData={formData}
+                  setFormData={setFormData}
+                  initialFormData={initialFormData}
                 />
               )}
-              {selectedForm === 4 && <LabForm1 />}
+              {/* {selectedForm === 4 && <LabForm1 />} */}
             </div>
           </div>
         </div>

@@ -9,6 +9,7 @@ import Dashboard from "./pages/Reception/Dashboard";
 import DoctorDashboard from "./pages/Doctors/DoctorDashboard";
 import LabDashboard from "./pages/Labaratory/LabDashboard";
 import BirthDashboard from "./pages/Birth/BirthDashboard";
+import PatientHistory from "./pages/Doctors/PatientHistory";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/doctor_dashboard" element={<DoctorDashboard />} />
           <Route exact path="/lab_dashboard" element={<LabDashboard />} />
           <Route exact path="/birth" element={<BirthDashboard />} />
+          <Route exact path="/patient-history" element={<PatientHistory />} />
         </Routes>
       </Router>
     </div>
