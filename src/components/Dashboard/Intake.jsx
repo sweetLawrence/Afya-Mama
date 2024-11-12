@@ -74,8 +74,8 @@ const Intake = () => {
         setPatients(response.data);
         // console.log("Responzzz", response.data)
       } catch (error) {
-        console.error("Error fetching patients:", error);
-        toast.error("Failed to fetch patients");
+        // console.error("Error fetching patients:", error);
+        // toast.error("Failed to fetch patients");
       }
     };
 

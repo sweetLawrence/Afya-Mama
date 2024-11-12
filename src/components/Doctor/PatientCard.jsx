@@ -27,6 +27,11 @@ const PatientCard = ({
     const patientHistoryUrl = `/patient-history?patientId=${patient.id}&firstName=${patient.first_name}&lastName=${patient.last_name}`;
     window.open(patientHistoryUrl, "_blank"); // Opens in a new tab
   }
+  function fetchPatientUltrasound() {
+    // Open a new tab with patient ID, first name, and last name as query parameters
+    const patientUltrasoundUrl = `/patient-ultrasound?patientId=${patient.id}&firstName=${patient.first_name}&lastName=${patient.last_name}`;
+    window.open(patientUltrasoundUrl, "_blank"); // Opens in a new tab
+  }
 
   return (
     <div
@@ -40,6 +45,9 @@ const PatientCard = ({
         <span className="patient-status">{patient.national_id}</span>
         <span className="view-history" onClick={fetchPatientHistory}>
           View History
+        </span>
+        <span className="view-history" onClick={fetchPatientUltrasound}>
+          Ultrasound Images
         </span>
       </div>
       <div className="action-buttons">

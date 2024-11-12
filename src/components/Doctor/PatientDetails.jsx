@@ -35,12 +35,12 @@ const PatientDetails = ({ patient }) => {
             {/* <p>{patient.email}</p> */}
             <p>{patient ? `${patient.email}` : "template@domain"}</p>
         </div>
-        <div className="details">
+
+        {/* <div className="details">
             <HomeIcon style={{ color: '#2b50aa', fontSize:"1.3em" }}/>
-            {/* <p>tsungulawrence@gmail.com</p> */}
-            {/* <p>{patient.email}</p> */}
             <p>{patient ? `${patient.address}` : "Weya Street"}</p>
-        </div>
+        </div> */}
+        
         <div className="details">
             <PaymentIcon style={{ color: '#2b50aa', fontSize:"1.3em" }}/>
             {/* <p>tsungulawrence@gmail.com</p> */}

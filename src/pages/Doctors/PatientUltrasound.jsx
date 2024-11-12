@@ -6,28 +6,28 @@ import emailjs from "@emailjs/browser";
 import LOGO from "../../assets/images/afyamama.png";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 
-const PatientHistory = () => {
+const PatientUltrasound = () => {
   const [searchParams] = useSearchParams();
   const patientId = searchParams.get("patientId");
   const firstName = searchParams.get("firstName");
   const lastName = searchParams.get("lastName");
   const { toPDF, targetRef } = usePDF({
-    filename: `${firstName} ${lastName} test-report.pdf`,
+    filename: `${firstName} ${lastName} ultrasound-report.pdf`,
   });
 
-  const [testHistory, setTestHistory] = useState([]);
+  const [ultrasounds, setUltrasounds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     if (patientId) {
-      const fetchHistory = async () => {
+      const fetchUltrasound = async () => {
         try {
           const response = await axiosInstance.get(
-            `/patients/history/${patientId}`
+            `/patients/ultrasound/${patientId}`
           );
           console.log(response);
-          setTestHistory(response.data);
+          setUltrasounds(response.data);
           setLoading(false);
         } catch (error) {
           setError("Error fetching patient history");
@@ -35,19 +35,19 @@ const PatientHistory = () => {
         }
       };
 
-      fetchHistory();
+      fetchUltrasound();
     }
   }, [patientId]);
 
   if (loading)
-    return <p className="history-loading">Loading patient history...</p>;
+    return <p className="history-loading">Loading ultrasound images...</p>;
   if (error) return <p className="history-error">{error}</p>;
 
   return (
-    <div className="history-container">
+    <div className="history-container ">
       <div className="download-icon" onClick={() => toPDF()}>
-        <FileDownloadIcon style={{color:"#2b50aa"}}  />
-            Download Report
+        <FileDownloadIcon style={{ color: "#2b50aa" }} />
+        Download Report
       </div>
 
       <div className="overall-container" ref={targetRef}>
@@ -55,13 +55,30 @@ const PatientHistory = () => {
           <div className="hist-logo-container">
             <img src={LOGO} alt="logo" />
           </div>
-          <h2 className="history-title">Patient Test History</h2>
+          <h2 className="history-title ult-title">Ultrasound Images</h2>
         </div>
 
         <h3>
           {firstName} {lastName}
         </h3>
-        <table className="history-table">
+
+        <div className="ultrasound-images-area">
+          {ultrasounds.map((ultrasound, index) => (
+            <div key={index} className="holder">
+              <p className="date">{ultrasound.date}</p>
+              <div key={index} className="image-container">
+                <img src={ultrasound.url} alt="ultrasound Image" />
+              </div>
+
+              <div className="gestation-period-div">
+                <div className="gp">{ultrasound.trimester} trimester</div>
+                <div className="gp">{ultrasound.week} weeks</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* <table className="history-table">
           <thead>
             <tr className="history-header-row">
               <th className="history-header-cell">Date</th>
@@ -69,9 +86,9 @@ const PatientHistory = () => {
               <th className="history-header-cell">Category</th>
               <th className="history-header-cell">Result</th>
               <th className="history-header-cell">Comment</th>
-              {/* <th className="history-header-cell">Doctor ID</th> */}
+            
               <th className="history-header-cell">Trimester</th>
-              {/* <th className="history-header-cell">Visit ID</th> */}
+         
             </tr>
           </thead>
           <tbody>
@@ -84,21 +101,17 @@ const PatientHistory = () => {
                 <td className="history-cell">{test.testCategory}</td>
                 <td className="history-cell">{test.result}</td>
                 <td className="history-cell">{test.comment || '_'}</td>
-                {/* <td className="history-cell">{test.doctorId}</td> */}
+                
                 <td className="history-cell">{test.trimester}</td>
-                {/* <td className="history-cell">{test.visitId}</td> */}
+              
               </tr>
             ))}
           </tbody>
          
-        </table>
+        </table> */}
       </div>
-
-      {/* <button className="report-btn" onClick={() => toPDF()}>
-        Download Report
-      </button> */}
     </div>
   );
 };
 
-export default PatientHistory;
+export default PatientUltrasound;

@@ -344,7 +344,7 @@ button {
   /* justify-content: space-between; */
 
   & .history-title {
-    margin: 5px auto 0 auto;
+    /* margin: 5px auto 0 auto; */
   }
 }
 .hist-logo-container {
@@ -374,9 +374,10 @@ button {
 .history-title {
   text-align: center;
   color: var(--blue);
-  font-size: 26px;
-  margin-bottom: 20px;
+  font-size: 29px;
+  margin-bottom: 16px;
   font-weight: 700;
+  margin-top: .5em;
 }
 
 .history-table {
@@ -459,4 +460,78 @@ button {
   .history-title {
     font-size: 22px;
   }
+}
+
+
+
+.ultrasound-images-area{
+  /* background: var(--bg); */
+  padding: .5em;
+  margin-top: 1.5em;
+
+  & .date{
+    font-size: 1em;
+    font-weight: 700;
+    color: #818485;
+
+
+
+
+
+
+    color: #050517;
+    font-weight: 700;
+    border: 2px solid #818485;
+    border-radius: 5px;
+    padding: .2em .9em;
+    background: #595e65;
+    color: #e2f6f6;
+    width: 15%;
+  }
+
+  & .image-container{
+    background: #818485;
+    width: 100%;
+    min-height: 60vh;
+    margin: .5em auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+
+  & img{
+    width: 100%;
+    object-fit: contain;
+  }
+
+  & .gestation-period-div{
+    display: flex;
+    /* background: red; */
+    width: 25%;
+    justify-content: space-between;
+
+    & .gp{
+      color: #050517;
+      font-weight: 700;
+      border: 2px solid #818485;
+      border-radius: 5px;
+      padding: .2em .9em;
+      background: #595e65;
+      color: #e2f6f6;
+    }
+  }
+
+  & .holder{
+    /* background: var(--bg); */
+    padding: .4em .6em;
+    margin-bottom: 1em;
+    border-bottom: .5px solid #818485;
+  }
+}
+
+.ult-title{
+  
+  /* background: red; */
 }

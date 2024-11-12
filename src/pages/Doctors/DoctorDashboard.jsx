@@ -42,7 +42,7 @@ const DoctorDashboard = () => {
           <div className="left">
             {/* <PatientDetails /> */}
             <PatientDetails patient={selectedPatient} />
-            <LabResults />
+            <LabResults patient={selectedPatient}/>
           </div>
           <div className="right">
             <MaternalProfile patient={selectedPatient} />

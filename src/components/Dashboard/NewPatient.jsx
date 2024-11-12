@@ -97,7 +97,7 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
       </div>
       <div className="form-section">
         <form onSubmit={handleSubmit}>
-          <GroupedInputs
+          {/* <GroupedInputs
             special_class="special_class"
             title="Registration Date and Time"
           >
@@ -116,7 +116,7 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
               id="time"
               onChange={handleInputChange}
             />
-          </GroupedInputs>
+          </GroupedInputs> */}
 
           <GroupedInputs title="National Identification Number">
             <FormInput
@@ -267,7 +267,7 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
 
           <GroupedInputs
             special_class="special_class"
-            title="Last Menstrual Period & Expected Delivery Date"
+            title="Last Menstrual Period " //& Expected Delivery Date
           >
             <FormInput
               name="lmp"
@@ -278,14 +278,14 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
               onChange={handleInputChange}
             />
 
-            <FormInput
+            {/* <FormInput
               name="edd"
               label="EDD"
               id="edd"
               type="date"
               value={formValues.edd}
               onChange={handleInputChange}
-            />
+            /> */}
           </GroupedInputs>
 
           <GroupedInputs title="Gravida & Parity">
@@ -309,7 +309,7 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
             />
           </GroupedInputs>
 
-          <GroupedInputs special_class="special_class" title="Height & Weight">
+          {/* <GroupedInputs special_class="special_class" title="Height & Weight">
             <FormInput
               name="height"
               label="Height"
@@ -331,7 +331,7 @@ const NewPatient = ({ setFormOpen, fetchAction, setFetchAction }) => {
               value={formValues.weight}
               onChange={handleInputChange}
             />
-          </GroupedInputs>
+          </GroupedInputs> */}
 
           <button className="intake_btn" type="submit">
             Register

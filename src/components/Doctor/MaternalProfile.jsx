@@ -47,7 +47,9 @@ const MaternalProfile = ({ patient }) => {
           <div className="item-title">Date Of Birth</div>
           <div className="item-value">
             {" "}
-            {patient ? ` ${patient.date_of_birth}` : "yyyy-mm-dd"}
+            {/* {patient ? ` ${patient.date_of_birth}` : "yyyy-mm-dd"} */}
+            {patient ? new Date(patient.date_of_birth).toISOString().split("T")[0] : "yyyy-mm-dd"}
+
           </div>
         </div>
         <div className="item">
