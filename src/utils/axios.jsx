@@ -27,7 +27,7 @@ const getBaseURL = () => {
     window.location.hostname === "127.0.0.1";
   return isLocalhost
     ? "http://localhost:3000"
-    : "https://5087-102-209-136-66.ngrok-free.app";
+    : "https://a927-197-232-61-200.ngrok-free.app";
 };
 
 const getToken = () => {
